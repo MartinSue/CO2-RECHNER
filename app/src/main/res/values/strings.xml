@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">CO2-RECHNER</string>
+    <string name="label_textview_name">Name/Zweck:</string>
+    <string name="hint_name">Bitte einen Namen eingeben...</string>
+    <string name="label_textview_kraftstoffart">Kraftstoffart:</string>
+
+    <string-array name="kraftstoffart">
+        <item>Bitte auswählen...</item>
+        <item>Benzin</item>
+        <item>Diesel</item>
+        <item>Autogas (LPG)</item>
+        <item>Erdgas (CNG)</item>
+    </string-array>
+
+    <string name="label_textview_kraftstoffverbrauch">Kraftstoffverbrauch:</string>
 </resources>

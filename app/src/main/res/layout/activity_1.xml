@@ -1,7 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity1"/>
+    tools:context=".Activity1" >
+
+    <TextView
+        android:id="@+id/textview_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_textview_name"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/plaintext_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_name"
+        android:ems="10"
+        android:hint="@string/hint_name"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textview_kraftstoffart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plaintext_name"
+        android:layout_marginTop="15dp"
+        android:text="@string/label_textview_kraftstoffart"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <Spinner
+        android:id="@+id/spinner_kraftstoffart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_kraftstoffart"/>
+
+    <TextView
+        android:id="@+id/textview_kraftstoffverbrauch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinner_kraftstoffart"
+        android:layout_marginTop="15dp"
+        android:text="@string/label_textview_kraftstoffverbrauch"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <SeekBar
+        android:id="@+id/seekBar_kraftstoffverbrauch"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        android:layout_below="@id/textview_kraftstoffverbrauch"
+        android:max="30" />
+
+    <TextView
+        android:id="@+id/textView_kraftstoffverbrauch_zahl"
+        android:layout_width="match_parent"
+        android:layout_height="29dp"
+        android:layout_below="@id/seekBar_kraftstoffverbrauch"
+        android:layout_marginTop="-12dp"
+        android:gravity="center_horizontal|center_vertical" />
+
+
+</RelativeLayout>
