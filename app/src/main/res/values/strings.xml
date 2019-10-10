@@ -13,4 +13,9 @@
     </string-array>
 
     <string name="label_textview_kraftstoffverbrauch">Kraftstoffverbrauch:</string>
+    <string name="label_textview_strecke">Zurückgelegte Strecke:</string>
+    <string name="hint_km">Bitte eingeben...</string>
+    <string name="label_textview_km">KM</string>
+    <string name="label_button_berechnung">BERECHNEN</string>
+    <string name="label_textview_hilfe">💡Hilfe</string>
 </resources>

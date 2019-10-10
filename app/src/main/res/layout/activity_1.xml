@@ -50,19 +50,65 @@
         android:textSize="24sp" />
 
     <SeekBar
-        android:id="@+id/seekBar_kraftstoffverbrauch"
+        android:id="@+id/seekbar_kraftstoffverbrauch"
         android:layout_width="match_parent"
         android:layout_height="57dp"
         android:layout_below="@id/textview_kraftstoffverbrauch"
         android:max="30" />
 
     <TextView
-        android:id="@+id/textView_kraftstoffverbrauch_zahl"
+        android:id="@+id/textview_kraftstoffverbrauch_zahl"
         android:layout_width="match_parent"
         android:layout_height="29dp"
-        android:layout_below="@id/seekBar_kraftstoffverbrauch"
+        android:layout_below="@id/seekbar_kraftstoffverbrauch"
         android:layout_marginTop="-12dp"
         android:gravity="center_horizontal|center_vertical" />
+
+    <TextView
+        android:id="@+id/textview_strecke"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_kraftstoffverbrauch_zahl"
+        android:text="@string/label_textview_strecke"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/plaintext_strecke"
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview_strecke"
+        android:ems="10"
+        android:hint="@string/hint_km"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textview_km"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/plaintext_strecke"
+        android:layout_below="@id/textview_strecke"
+        android:text="@string/label_textview_km"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/button_berechnung"
+        android:layout_width="168dp"
+        android:layout_height="66dp"
+        android:layout_below="@id/plaintext_strecke"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text="@string/label_button_berechnung"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textview_hilfe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_berechnung"
+        android:layout_alignParentRight="true"
+        android:text="@string/label_textview_hilfe" />
 
 
 </RelativeLayout>

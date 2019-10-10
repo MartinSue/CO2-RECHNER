@@ -1,7 +1,5 @@
 package com.example.co2_rechner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +34,8 @@ public class Activity1 extends Activity implements AdapterView.OnItemSelectedLis
         spinner.setOnItemSelectedListener(this);
 
         //SeekBar
-        seekbar = findViewById(R.id.seekBar_kraftstoffverbrauch);
-        seekbar_textview = findViewById(R.id.textView_kraftstoffverbrauch_zahl);
+        seekbar = findViewById(R.id.seekbar_kraftstoffverbrauch);
+        seekbar_textview = findViewById(R.id.textview_kraftstoffverbrauch_zahl);
 
         seekbar.setMax(seekbar_max);
         seekbar.setProgress(seekbar_start);
