@@ -10,7 +10,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+//MARTIN IST DOOF
 public class Activity1 extends Activity implements AdapterView.OnItemSelectedListener {
 
     //Variablen für SeekBar
