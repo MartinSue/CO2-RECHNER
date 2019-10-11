@@ -2,6 +2,7 @@ package com.example.co2_rechner;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,7 +11,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//MARTIN IST DOOF
 public class Activity1 extends Activity implements AdapterView.OnItemSelectedListener {
 
     //Variablen für SeekBar
@@ -25,6 +25,10 @@ public class Activity1 extends Activity implements AdapterView.OnItemSelectedLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
+
+        //Hilfe
+        TextView hilfe = findViewById(R.id.textview_hilfe);
+        hilfe.setMovementMethod(LinkMovementMethod.getInstance());
 
         //Spinner wird definiert und array items aus string.xml gelesen
         Spinner spinner = findViewById(R.id.spinner_kraftstoffart);
