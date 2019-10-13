@@ -15,8 +15,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Activity1 extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+//TODO: Alle Strings auf R.strings beziehen!
 
-
+    String X;
     //Variablen für EditText
     protected EditText editText_name;
     protected EditText getEditText_strecke;
@@ -34,7 +35,18 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     protected Button button_berechnung;
 
     //Sonstige Variablen
-    String TEST;
+    String kraftstoffAsString;
+    Double ergebnis1;
+    Double ergebnis2;
+
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        kraftstoffAsString = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +75,12 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekbar_value = seekbar.getProgress();
-                seekbar_textview.setText(seekbar_value + " Liter/100km");
-                seekValue=seekbar_value;
+                if (kraftstoffAsString.equals("Erdgas (CNG)")){
+                    seekbar_textview.setText(seekbar_value + " Kilogramm/100km");
+                }else {
+                    seekbar_textview.setText(seekbar_value + " Liter/100km");
+                    seekValue = seekbar_value;
+                }
             }
 
             @Override
@@ -89,28 +105,64 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
 
 
-    //Toast bei Klick auf Item
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        TEST = parent.getItemAtPosition(position).toString();
 
 
-    }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
+        public void onClick (View view){
+    try {
 
-    }
+        String strecke = getEditText_strecke.getText().toString();
 
-    public void onClick(View view) {
+        if (kraftstoffAsString.equals("Benzin")) {
+            ergebnis1 = seekbar_value * 23.2;
+            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+        }
+        if (kraftstoffAsString.equals("Diesel")) {
+            ergebnis1 = seekbar_value * 26.5;
+            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+        }
+        if (kraftstoffAsString.equals("Autogas (LPG)")) {
+            ergebnis1 = seekbar_value * 17.9;
+            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+        }
+        if (kraftstoffAsString.equals("Erdgas (CNG)")) {
+            ergebnis1 = seekbar_value * 16.3;
+            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+        }
+        if (kraftstoffAsString.equals("Bitte auswählen...")){
+            Toast.makeText(getApplicationContext(),"Bitte Kraftstoff wählen!",Toast.LENGTH_SHORT).show();
+            Exception f = new Exception();
+            throw (new Exception (f));
+            }
+
 
         Intent intent = new Intent(this, Activity2.class);
-        intent.putExtra("nameUebergabe", ""+editText_name.getText());
-        intent.putExtra("artUebergabe", ""+TEST);
-        intent.putExtra("verbrauchUebergabe", ""+seekbar_value);
-        intent.putExtra("streckeUebergabe", ""+getEditText_strecke.getText());
-        Toast.makeText(getApplicationContext(),TEST,Toast.LENGTH_SHORT).show();
+        intent.putExtra("nameUebergabe", "" + editText_name.getText());
+        intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
+        intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
+        intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
+        intent.putExtra("ergebnisBerechnung1", ergebnis1 + "");
+        intent.putExtra("ergebnisBerechnung2", ergebnis2 + "");
+
         startActivity(intent);
 
+    }catch(Exception e){
+        Toast.makeText(getApplicationContext(),"Bitte numerischen Wert eingeben!",Toast.LENGTH_SHORT).show();
+    }
+
         }
+
+    public double rundeBetrag(double betrag)
+    {
+        double round = Math.round(betrag*10000);
+        round = round / 10000;
+        round = Math.round(round*1000);
+        round = round / 1000;
+        round = Math.round(round*100);
+        return round / 100;
+    }
+
+
+
+
 }

@@ -1,114 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity1" >
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".Activity1">
 
-    <TextView
-        android:id="@+id/textview_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/label_textview_name"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <EditText
-        android:id="@+id/plaintext_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textview_name"
-        android:ems="10"
-        android:hint="@string/hint_name"
-        android:inputType="textPersonName" />
-
-    <TextView
-        android:id="@+id/textview_kraftstoffart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/plaintext_name"
-        android:layout_marginTop="15dp"
-        android:text="@string/label_textview_kraftstoffart"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <Spinner
-        android:id="@+id/spinner_kraftstoffart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textview_kraftstoffart"/>
-
-    <TextView
-        android:id="@+id/textview_kraftstoffverbrauch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/spinner_kraftstoffart"
-        android:layout_marginTop="15dp"
-        android:text="@string/label_textview_kraftstoffverbrauch"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
-
-    <SeekBar
-        android:id="@+id/seekbar_kraftstoffverbrauch"
-        android:layout_width="match_parent"
-        android:layout_height="57dp"
-        android:layout_below="@id/textview_kraftstoffverbrauch"
-        android:max="30" />
-
-    <TextView
-        android:id="@+id/textview_kraftstoffverbrauch_zahl"
-        android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:layout_below="@id/seekbar_kraftstoffverbrauch"
-        android:layout_marginTop="-12dp"
-        android:gravity="center_horizontal|center_vertical" />
-
-    <TextView
-        android:id="@+id/textview_strecke"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textview_kraftstoffverbrauch_zahl"
-        android:text="@string/label_textview_strecke"
-        android:textColor="@color/colorAccent"
-        android:textSize="24sp" />
+        android:layout_gravity="center|right|top|left"
+        android:src="@drawable/headers1" />
 
-    <EditText
-        android:id="@+id/plaintext_strecke"
-        android:layout_width="248dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textview_strecke"
-        android:ems="10"
-        android:hint="@string/hint_km"
-        android:inputType="textPersonName" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textview_km"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:layout_toRightOf="@id/plaintext_strecke"
-        android:layout_below="@id/textview_strecke"
-        android:text="@string/label_textview_km"
-        android:textSize="24sp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
 
-    <Button
-        android:id="@+id/button_berechnung"
-        android:layout_width="168dp"
-        android:layout_height="66dp"
-        android:layout_below="@id/plaintext_strecke"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:text="@string/label_button_berechnung"
-        android:textSize="24sp" />
+            <TextView
+                android:id="@+id/textview_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="1dp"
+                android:background="#1E453B"
+                android:fontFamily="sans-serif-condensed-light"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center_horizontal|center_vertical"
+                android:minHeight="30dp"
+                android:text="Bezeichnung:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/textview_hilfe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button_berechnung"
-        android:layout_alignParentRight="true"
-        android:text="@string/label_textview_hilfe" />
+            <EditText
+                android:id="@+id/plaintext_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textview_name"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:hint="@string/hint_name"
+                android:inputType="textPersonName"
+                android:minHeight="30dp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textview_kraftstoffart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/plaintext_name"
+                android:layout_marginTop="15dp"
+                android:background="#1E463C"
+                android:fontFamily="sans-serif-condensed-light"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center_horizontal|center_vertical"
+                android:minHeight="30dp"
+                android:text="Kraftstoffart:"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/spinner_kraftstoffart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textview_kraftstoffart"
+                android:background="#FFFFFF"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:minHeight="30dp"
+                android:spinnerMode="dropdown" />
+
+            <TextView
+                android:id="@+id/textview_kraftstoffverbrauch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/spinner_kraftstoffart"
+                android:layout_marginTop="15dp"
+                android:background="#1E453C"
+                android:fontFamily="sans-serif-condensed-light"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center_horizontal"
+                android:minHeight="30dp"
+                android:text="@string/label_textview_kraftstoffverbrauch"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/seekbar_kraftstoffverbrauch"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textview_kraftstoffverbrauch"
+                android:background="#FFFFFF"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:max="2525"
+                android:minHeight="35dp" />
+
+            <TextView
+                android:id="@+id/textview_kraftstoffverbrauch_zahl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/seekbar_kraftstoffverbrauch"
+                android:layout_marginTop="6dp"
+                android:background="#FFFFFF"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center_horizontal|center_vertical"
+                android:minHeight="30dp" />
+
+            <TextView
+                android:id="@+id/textview_strecke"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textview_kraftstoffverbrauch_zahl"
+                android:layout_marginTop="-4dp"
+                android:background="#1E453C"
+                android:fontFamily="sans-serif-condensed-light"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center_horizontal"
+                android:minHeight="30dp"
+                android:text="@string/label_textview_strecke"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/plaintext_strecke"
+                android:layout_width="302dp"
+                android:layout_height="match_parent"
+                android:layout_below="@id/textview_strecke"
+                android:background="#FFFFFF"
+                android:ems="10"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:hint="@string/hint_km"
+                android:inputType="textPersonName"
+                android:minHeight="30dp"
+                android:textColor="#000000"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/textview_km"
+                android:layout_width="81dp"
+                android:layout_height="26dp"
+                android:layout_below="@id/textview_strecke"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginRight="0dp"
+                android:background="#FFFFFF"
+                android:fontFamily="sans-serif-condensed-light"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:minHeight="30dp"
+                android:text="Kilometer"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button_berechnung"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/plaintext_strecke"
+                android:layout_marginTop="15dp"
+                android:background="#FFFFFF"
+                android:fontFamily="sans-serif-condensed-light"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center|center_horizontal"
+                android:minHeight="30dp"
+                android:text="@string/label_button_berechnung"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textview_hilfe"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/button_berechnung"
+                android:background="#FFFFFF"
+                android:foregroundGravity="center_vertical|clip_horizontal|center"
+                android:gravity="center|center_horizontal"
+                android:minHeight="30dp"
+                android:text="@string/label_textview_hilfe" />
+        </RelativeLayout>
+    </ScrollView>
 
 
-</RelativeLayout>
+</LinearLayout>

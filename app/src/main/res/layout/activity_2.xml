@@ -1,33 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFE"
     android:orientation="vertical"
+    tools:actionBarNavMode="logo"
     tools:context=".Activity2">
 
     <TextView
         android:id="@+id/textView_nameAnzeige"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="false"
+        android:background="#FFFFFE"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="13pt" />
 
     <TextView
         android:id="@+id/textView_kraftstoffartAnzeige"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_below="@id/textView_nameAnzeige"
+        android:background="#FFFFFE"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="13pt" />
 
     <TextView
         android:id="@+id/textView_verbrauchAnzeige"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_below="@id/textView_kraftstoffartAnzeige"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="13pt" />
 
     <TextView
         android:id="@+id/textView_streckeAnzeige"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1" />
-</LinearLayout>
+        android:layout_below="@id/textView_verbrauchAnzeige"
+        android:background="#FFFFFE"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="13pt" />
+
+    <TextView
+        android:id="@+id/textView_ergebnis1Anzeige"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_streckeAnzeige"
+        android:background="#FFFFFE"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="13pt" />
+
+    <TextView
+        android:id="@+id/textView_ergebnis2Anzeige"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView_ergebnis1Anzeige"
+        android:background="#FFFFFE"
+        android:fontFamily="sans-serif"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:autoSizeMinTextSize="13pt" />
+
+    <ScrollView
+        android:id="@+id/scrollview_trees"
+        android:layout_width="match_parent"
+        android:layout_height="383dp"
+        android:layout_below="@id/textView_ergebnis2Anzeige"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_tree"
+                android:layout_width="match_parent"
+                android:layout_height="384dp"
+                android:layout_marginTop="1dp"
+                android:textColor="#009688"
+                android:textSize="36sp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button_InfoSeite"
+        android:layout_width="71dp"
+        android:layout_height="39dp"
+        android:layout_below="@id/scrollview_trees"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="false"
+        android:layout_marginTop="4dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="74dp"
+        android:background="#00FFFFFF"
+        android:text="Info"
+        android:textSize="10sp" />
+
+</RelativeLayout>

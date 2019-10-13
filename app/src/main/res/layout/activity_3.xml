@@ -2,8 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/textView_treeText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Activity3">
 
+    <TextView
+        android:id="@+id/textView_TreeText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Eine 35 m hohe Fichte mit einem Alter von ca. 100 Jahren hat einem Durchmesser von 50 cm (in 1,3 m Höhe über dem Boden gemessen). Das Holzvolumen inklusive Äste aber ohne Wurzeln beträgt 3,4 m3. Die darin enthaltene gesamte Biomasse hat ein Trockengewicht von knapp 1,4 Tonnen; die Hälfte des Holzkörpers besteht aus Kohlenstoff, also 0,7 Tonnen. Das bedeutet: Eine 35m Hohe Fichte hat 0,7 Tonnen Kohlenstoff gespeichert. Dies entspricht einer CO2 Absorption von 2,6 Tonnen CO2 (Umrechnungsfaktor 3,67)."
+        tools:text="Eine 35 m hohe Fichte mit einem Alter von ca. 100 Jahren hat einem Durchmesser von 50 cm (in 1,3 m Höhe über dem Boden gemessen). Das Holzvolumen inklusive Äste aber ohne Wurzeln beträgt 3,4 m3. Die darin enthaltene gesamte Biomasse hat ein Trockengewicht von knapp 1,4 Tonnen; die Hälfte des Holzkörpers besteht aus Kohlenstoff, also 0,7 Tonnen. Das bedeutet: Eine 35m Hohe Fichte hat 0,7 Tonnen Kohlenstoff gespeichert. Dies entspricht einer CO2 Absorption von 2,6 Tonnen CO2 (Umrechnungsfaktor 3,67)." />
 </LinearLayout>
