@@ -17,6 +17,7 @@
     <string name="hint_km">Bitte eingeben...</string>
     <string name="label_textview_km">KM</string>
     <string name="label_button_berechnung">BERECHNEN</string>
+    <string name="label_button_hilfe">💡Hilfe</string>
     <string name="label_textview_hilfe">
         <a href="https://www.deutsche-handwerks-zeitung.de/kraftstoffverbrauch-in-co2-ausstoss-umrechnen/150/3097/57956">💡Hilfe</a></string>
 </resources>

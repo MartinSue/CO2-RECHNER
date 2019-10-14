@@ -33,6 +33,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
     //Variable für Button
     protected Button button_berechnung;
+    protected Button button_hilfe;
 
     //Sonstige Variablen
     String kraftstoffAsString;
@@ -54,8 +55,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         setContentView(R.layout.activity_1);
 
         //Hilfe
-        TextView hilfe = findViewById(R.id.textview_hilfe);
-        hilfe.setMovementMethod(LinkMovementMethod.getInstance());
+
 
         //Spinner wird definiert und array items aus string.xml gelesen
         Spinner spinner = findViewById(R.id.spinner_kraftstoffart);
@@ -97,6 +97,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         //Button
         button_berechnung = findViewById(R.id.button_berechnung);
         button_berechnung.setOnClickListener(this);
+        button_hilfe = findViewById(R.id.button_hilfe);
+        button_hilfe.setOnClickListener(this);
 
         //EditText
         editText_name = findViewById(R.id.plaintext_name);
@@ -111,40 +113,47 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         public void onClick (View view){
     try {
 
-        String strecke = getEditText_strecke.getText().toString();
+        if(view.getId() == R.id.button_berechnung) {
 
-        if (kraftstoffAsString.equals("Benzin")) {
-            ergebnis1 = seekbar_value * 23.2;
-            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
-        }
-        if (kraftstoffAsString.equals("Diesel")) {
-            ergebnis1 = seekbar_value * 26.5;
-            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
-        }
-        if (kraftstoffAsString.equals("Autogas (LPG)")) {
-            ergebnis1 = seekbar_value * 17.9;
-            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
-        }
-        if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-            ergebnis1 = seekbar_value * 16.3;
-            ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
-        }
-        if (kraftstoffAsString.equals("Bitte auswählen...")){
-            Toast.makeText(getApplicationContext(),"Bitte Kraftstoff wählen!",Toast.LENGTH_SHORT).show();
-            Exception f = new Exception();
-            throw (new Exception (f));
+            String strecke = getEditText_strecke.getText().toString();
+
+            if (kraftstoffAsString.equals("Benzin")) {
+                ergebnis1 = seekbar_value * 23.2;
+                ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+            }
+            if (kraftstoffAsString.equals("Diesel")) {
+                ergebnis1 = seekbar_value * 26.5;
+                ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+            }
+            if (kraftstoffAsString.equals("Autogas (LPG)")) {
+                ergebnis1 = seekbar_value * 17.9;
+                ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+            }
+            if (kraftstoffAsString.equals("Erdgas (CNG)")) {
+                ergebnis1 = seekbar_value * 16.3;
+                ergebnis2 = rundeBetrag(ergebnis1 / 100 * Double.valueOf(strecke));
+            }
+            if (kraftstoffAsString.equals("Bitte auswählen...")) {
+                Toast.makeText(getApplicationContext(), "Bitte Kraftstoff wählen!", Toast.LENGTH_SHORT).show();
+                Exception f = new Exception();
+                throw (new Exception(f));
             }
 
 
-        Intent intent = new Intent(this, Activity2.class);
-        intent.putExtra("nameUebergabe", "" + editText_name.getText());
-        intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
-        intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
-        intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
-        intent.putExtra("ergebnisBerechnung1", ergebnis1 + "");
-        intent.putExtra("ergebnisBerechnung2", ergebnis2 + "");
+            Intent intent = new Intent(this, Activity2.class);
+            intent.putExtra("nameUebergabe", "" + editText_name.getText());
+            intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
+            intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
+            intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
+            intent.putExtra("ergebnisBerechnung1", ergebnis1 + "");
+            intent.putExtra("ergebnisBerechnung2", ergebnis2 + "");
 
-        startActivity(intent);
+            startActivity(intent);
+        }
+        if(view.getId() == R.id.button_hilfe){
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        }
 
     }catch(Exception e){
         Toast.makeText(getApplicationContext(),"Bitte numerischen Wert eingeben!",Toast.LENGTH_SHORT).show();

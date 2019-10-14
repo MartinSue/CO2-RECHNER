@@ -172,16 +172,22 @@
                 android:text="@string/label_button_berechnung"
                 android:textSize="18sp" />
 
-            <TextView
-                android:id="@+id/textview_hilfe"
+            <Button
+                android:id="@+id/button_hilfe"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/button_berechnung"
+                android:layout_below="@+id/button_berechnung"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="-2dp"
                 android:background="#FFFFFF"
+                android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center|center_horizontal"
                 android:minHeight="30dp"
-                android:text="@string/label_textview_hilfe" />
+                android:text="@string/label_button_hilfe"
+                android:textSize="12sp" />
+
         </RelativeLayout>
     </ScrollView>
 

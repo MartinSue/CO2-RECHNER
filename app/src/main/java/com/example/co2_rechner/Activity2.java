@@ -55,7 +55,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         anzahlTree = "";
 
         for (int count = 0; count <= treeMenge; count++) {
-            anzahlTree = anzahlTree + "\uD83C\uDF32";
+            anzahlTree = anzahlTree + "\uD83C\uDF33";
         }
 
         return anzahlTree;
