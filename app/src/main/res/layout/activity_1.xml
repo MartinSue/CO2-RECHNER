@@ -35,7 +35,7 @@
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
-                android:text="Bezeichnung:"
+                android:text="@string/label_textview_bezeichnung"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -63,7 +63,7 @@
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
-                android:text="Kraftstoffart:"
+                android:text="@string/label_textview_kraftstoffart"
                 android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
@@ -155,7 +155,7 @@
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:minHeight="30dp"
-                android:text="Kilometer"
+                android:text="@string/label_textview_kilometer"
                 android:textSize="18sp" />
 
             <Button
