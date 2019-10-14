@@ -11,14 +11,15 @@
 
     <TextView
         android:id="@+id/textView_nameAnzeige"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="false"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="false"
         android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:autoSizeMinTextSize="13pt" />
 
     <TextView
@@ -29,7 +30,7 @@
         android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:autoSizeMinTextSize="13pt" />
 
     <TextView
@@ -39,7 +40,7 @@
         android:layout_below="@id/textView_kraftstoffartAnzeige"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:autoSizeMinTextSize="13pt" />
 
     <TextView
@@ -50,7 +51,7 @@
         android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:autoSizeMinTextSize="13pt" />
 
     <TextView
@@ -61,7 +62,7 @@
         android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:autoSizeMinTextSize="13pt" />
 
     <TextView
@@ -72,7 +73,7 @@
         android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="24sp"
         app:autoSizeMinTextSize="13pt" />
 
     <ScrollView
