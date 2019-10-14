@@ -42,6 +42,12 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         kraftstoffAsString = parent.getItemAtPosition(position).toString();
+        if (kraftstoffAsString.equals("Erdgas (CNG)")){
+            seekbar_textview.setText(seekbar_value + " Kilogramm/100km");
+        }else {
+            seekbar_textview.setText(seekbar_value + " Liter/100km");
+            seekValue = seekbar_value;
+        }
     }
 
     @Override
