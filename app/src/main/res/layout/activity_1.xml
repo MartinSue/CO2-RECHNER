@@ -10,7 +10,7 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|right|top|left"
         android:src="@drawable/headers1" />
@@ -50,7 +50,7 @@
                 android:hint="@string/hint_name"
                 android:inputType="textPersonName"
                 android:minHeight="30dp"
-                android:textStyle="italic" />
+                android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/textview_kraftstoffart"
@@ -139,8 +139,7 @@
                 android:hint="@string/hint_km"
                 android:inputType="textPersonName"
                 android:minHeight="30dp"
-                android:textColor="#000000"
-                android:textStyle="italic" />
+                android:textColor="#000000" />
 
             <TextView
                 android:id="@+id/textview_km"
