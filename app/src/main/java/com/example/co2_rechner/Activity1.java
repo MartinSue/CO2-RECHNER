@@ -3,7 +3,6 @@ package com.example.co2_rechner;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -60,9 +59,6 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
 
-        //Hilfe
-
-
         //Spinner wird definiert und array items aus string.xml gelesen
         Spinner spinner = findViewById(R.id.spinner_kraftstoffart);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.kraftstoffart, android.R.layout.simple_spinner_item);
@@ -72,7 +68,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
         //SeekBar
         seekbar = findViewById(R.id.seekbar_kraftstoffverbrauch);
-        seekbar_textview = findViewById(R.id.textview_kraftstoffverbrauch_zahl);
+        seekbar_textview = findViewById(R.id.textView_kraftstoffverbrauch_zahl);
 
         seekbar.setMax(seekbar_max);
         seekbar.setProgress(seekbar_start);
@@ -100,15 +96,17 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
             }
         });
 
-        //Button
+        //Button Berechnung
         button_berechnung = findViewById(R.id.button_berechnung);
         button_berechnung.setOnClickListener(this);
+
+        //Button Hilfe
         button_hilfe = findViewById(R.id.button_hilfe);
         button_hilfe.setOnClickListener(this);
 
         //EditText
-        editText_name = findViewById(R.id.plaintext_name);
-        getEditText_strecke = findViewById(R.id.plaintext_strecke);
+        editText_name = findViewById(R.id.plainText_name);
+        getEditText_strecke = findViewById(R.id.plainText_strecke);
     }
 
 
