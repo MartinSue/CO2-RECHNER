@@ -30,13 +30,14 @@
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="1dp"
-                android:background="#1E453B"
+                android:background="#801E453B"
+                android:clickable="false"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
                 android:text="Bezeichnung:"
-                android:textColor="#FFFFFF"
+                android:textColor="#21362E"
                 android:textSize="18sp" />
 
             <EditText
@@ -58,13 +59,13 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/plaintext_name"
                 android:layout_marginTop="15dp"
-                android:background="#1E463C"
+                android:background="#661E463C"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
                 android:text="Kraftstoffart:"
-                android:textColor="#FFFFFF"
+                android:textColor="#21362E"
                 android:textSize="18sp" />
 
             <Spinner
@@ -83,13 +84,13 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/spinner_kraftstoffart"
                 android:layout_marginTop="15dp"
-                android:background="#1E453C"
+                android:background="#4D1E453C"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_kraftstoffverbrauch"
-                android:textColor="#FFFFFF"
+                android:textColor="#21362E"
                 android:textSize="18sp" />
 
             <SeekBar
@@ -118,14 +119,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textview_kraftstoffverbrauch_zahl"
-                android:layout_marginTop="-4dp"
-                android:background="#1E453C"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="-10dp"
+                android:layout_marginEnd="0dp"
+                android:background="#331E453C"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_strecke"
-                android:textColor="#FFFFFF"
+                android:textColor="#21362E"
                 android:textSize="18sp" />
 
             <EditText
@@ -159,15 +162,19 @@
 
             <Button
                 android:id="@+id/button_berechnung"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="197dp"
+                android:layout_height="50dp"
                 android:layout_below="@id/plaintext_strecke"
-                android:layout_marginTop="15dp"
-                android:background="#FFFFFF"
+                android:layout_alignParentEnd="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="47dp"
+                android:layout_marginEnd="108dp"
+                android:background="#1A20362E"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center|center_horizontal"
                 android:minHeight="30dp"
+                android:shadowColor="#21362E"
                 android:text="@string/label_button_berechnung"
                 android:textSize="18sp" />
 
