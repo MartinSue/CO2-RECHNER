@@ -25,6 +25,9 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_2);
         verbrauchAnzeige = findViewById(R.id.textView_verbrauchAnzeige);
         streckeAnzeige = findViewById(R.id.textView_streckeAnzeige);
