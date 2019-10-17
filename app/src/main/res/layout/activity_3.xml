@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/textView_treeText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="15dp"
     android:orientation="vertical"
     tools:context=".Activity3">
 
     <TextView
-        android:id="@+id/textView_TreeText"
+        android:id="@+id/TextView_ueberschrift_hilfe"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text=" Um dennoch eine grobe Vorstellung über die CO2-Bindungskapazität von Bäumen zu bekommen, hilft dieses Beispiel:  Stellen Sie sich eine normal gewachsene Buche (im Bestand gewachsen) vor, die 23 Meter hoch ist und auf einer Stammhöhe von 1,30 Meter einen Durchmesser von etwa 30 Zentimetern besitzt. Dieser Baum speichert circa 550 Kilogramm Trockenmasse in seinen Blättern, Ästen und seinem Stamm. Schätzt man noch etwa zehn Prozent hinzu, die in der Wurzelbiomasse gespeichert sind, so werden insgesamt etwa 600 Kilogramm Trockenmasse gebunden. Diese Menge Trockenmasse kann eine Tonne CO2 binden. Das Gewicht der Trockenmasse ist deshalb geringer als die gebundene Menge CO2, weil bei der Photosynthese auch noch Sauerstoff abgegeben wird."
-        tools:text=" Um dennoch eine grobe Vorstellung über die CO2-Bindungskapazität von Bäumen zu bekommen, hilft dieses Beispiel:  Stellen Sie sich eine normal gewachsene Buche (im Bestand gewachsen) vor, die 23 Meter hoch ist und auf einer Stammhöhe von 1,30 Meter einen Durchmesser von etwa 30 Zentimetern besitzt. Dieser Baum speichert circa 550 Kilogramm Trockenmasse in seinen Blättern, Ästen und seinem Stamm. Schätzt man noch etwa zehn Prozent hinzu, die in der Wurzelbiomasse gespeichert sind, so werden insgesamt etwa 600 Kilogramm Trockenmasse gebunden. Diese Menge Trockenmasse kann eine Tonne CO2 binden. Das Gewicht der Trockenmasse ist deshalb geringer als die gebundene Menge CO2, weil bei der Photosynthese auch noch Sauerstoff abgegeben wird." />
-</LinearLayout>
+        android:layout_height="40dp"
+        android:background="#1E453B"
+        android:fontFamily="sans-serif-condensed-light"
+        android:foregroundGravity="center_vertical|clip_horizontal|center"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/label_button_hilfe"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView_infotext"
+        android:layout_width="match_parent"
+        android:layout_height="330dp"
+        android:layout_below="@id/TextView_ueberschrift_hilfe"
+        android:layout_marginTop="15dp"
+
+        android:layout_toRightOf="@id/imageView_baum"
+        android:text="@string/label_textView_infotext" />
+
+    <ImageView
+        android:id="@+id/imageView_baum"
+        android:layout_width="198dp"
+        android:layout_height="228dp"
+        android:layout_below="@id/TextView_ueberschrift_hilfe"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/baum" />
+
+</RelativeLayout>
+

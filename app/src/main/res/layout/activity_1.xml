@@ -9,7 +9,7 @@
     tools:context=".Activity1">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|right|top|left"
@@ -25,26 +25,25 @@
             android:background="#FFFFFF">
 
             <TextView
-                android:id="@+id/textview_name"
+                android:id="@+id/textView_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="1dp"
-                android:background="#801E453B"
-                android:clickable="false"
+                android:background="#E61E453B"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
-                android:text="Bezeichnung:"
-                android:textColor="#21362E"
+                android:text="@string/label_textview_bezeichnung"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/plaintext_name"
+                android:id="@+id/plainText_name"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/textview_name"
+                android:layout_below="@id/textView_name"
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
@@ -54,88 +53,88 @@
                 android:textStyle="normal" />
 
             <TextView
-                android:id="@+id/textview_kraftstoffart"
+                android:id="@+id/textView_kraftstoffart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/plaintext_name"
+                android:layout_below="@id/plainText_name"
                 android:layout_marginTop="15dp"
-                android:background="#661E463C"
+                android:background="#CC1E463C"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
-                android:text="Kraftstoffart:"
-                android:textColor="#21362E"
+                android:text="@string/label_textview_kraftstoffart"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <Spinner
                 android:id="@+id/spinner_kraftstoffart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/textview_kraftstoffart"
+                android:layout_below="@id/textView_kraftstoffart"
                 android:background="#FFFFFF"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:minHeight="30dp"
                 android:spinnerMode="dropdown" />
 
             <TextView
-                android:id="@+id/textview_kraftstoffverbrauch"
+                android:id="@+id/textView_kraftstoffverbrauch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/spinner_kraftstoffart"
                 android:layout_marginTop="15dp"
-                android:background="#4D1E453C"
+                android:background="#B31E453C"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_kraftstoffverbrauch"
-                android:textColor="#21362E"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <SeekBar
                 android:id="@+id/seekbar_kraftstoffverbrauch"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/textview_kraftstoffverbrauch"
+                android:layout_below="@id/textView_kraftstoffverbrauch"
                 android:background="#FFFFFF"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:max="2525"
                 android:minHeight="35dp" />
 
             <TextView
-                android:id="@+id/textview_kraftstoffverbrauch_zahl"
+                android:id="@+id/textView_kraftstoffverbrauch_zahl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/seekbar_kraftstoffverbrauch"
                 android:layout_marginTop="6dp"
-                android:background="#FFFFFF"
+                android:background="#99FFFFFF"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp" />
 
             <TextView
-                android:id="@+id/textview_strecke"
+                android:id="@+id/textView_strecke"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/textview_kraftstoffverbrauch_zahl"
+                android:layout_below="@id/textView_kraftstoffverbrauch_zahl"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="-10dp"
+                android:layout_marginTop="-25dp"
                 android:layout_marginEnd="0dp"
-                android:background="#331E453C"
+                android:background="#661E453C"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_strecke"
-                android:textColor="#21362E"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <EditText
-                android:id="@+id/plaintext_strecke"
+                android:id="@+id/plainText_strecke"
                 android:layout_width="302dp"
                 android:layout_height="match_parent"
-                android:layout_below="@id/textview_strecke"
+                android:layout_below="@id/textView_strecke"
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
@@ -145,10 +144,10 @@
                 android:textColor="#000000" />
 
             <TextView
-                android:id="@+id/textview_km"
+                android:id="@+id/textView_km"
                 android:layout_width="81dp"
                 android:layout_height="26dp"
-                android:layout_below="@id/textview_strecke"
+                android:layout_below="@id/textView_strecke"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="0dp"
@@ -157,25 +156,24 @@
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:minHeight="30dp"
-                android:text="Kilometer"
+                android:text="@string/label_textview_kilometer"
                 android:textSize="18sp" />
 
             <Button
                 android:id="@+id/button_berechnung"
-                android:layout_width="197dp"
-                android:layout_height="50dp"
-                android:layout_below="@id/plaintext_strecke"
-                android:layout_alignParentEnd="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="47dp"
-                android:layout_marginEnd="108dp"
-                android:background="#1A20362E"
+                android:layout_width="256dp"
+                android:layout_height="64dp"
+                android:layout_below="@id/plainText_strecke"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="43dp"
+                android:background="#8094A6A1"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center|center_horizontal"
                 android:minHeight="30dp"
-                android:shadowColor="#21362E"
                 android:text="@string/label_button_berechnung"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp" />
 
             <Button

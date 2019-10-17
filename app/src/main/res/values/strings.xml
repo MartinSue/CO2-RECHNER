@@ -1,6 +1,8 @@
 <resources>
+    <!--Activity1-->
+    <!--Namen noch anpassen-->
     <string name="app_name">CO2-RECHNER</string>
-    <string name="label_textview_name">Name/Zweck:</string>
+    <string name="label_textview_bezeichnung">Bezeichnung:</string>
     <string name="hint_name">Bitte einen Namen eingeben...</string>
     <string name="label_textview_kraftstoffart">Kraftstoffart:</string>
 
@@ -15,9 +17,11 @@
     <string name="label_textview_kraftstoffverbrauch">Kraftstoffverbrauch:</string>
     <string name="label_textview_strecke">Zurückgelegte Strecke:</string>
     <string name="hint_km">Bitte eingeben...</string>
-    <string name="label_textview_km">KM</string>
+    <string name="label_textview_kilometer">Kilometer</string>
     <string name="label_button_berechnung">BERECHNEN</string>
     <string name="label_button_hilfe">💡Hilfe</string>
-    <string name="label_textview_hilfe">
-        <a href="https://www.deutsche-handwerks-zeitung.de/kraftstoffverbrauch-in-co2-ausstoss-umrechnen/150/3097/57956">💡Hilfe</a></string>
+
+    <!--Activity2-->
+    <string name="label_textView_baum"></string>
+    <string name="label_textView_infotext">Um eine Tonne CO2 aufnehmen zu können, muss die Buche etwa 80 Jahre wachsen. Das heißt: Pro Jahr bindet die Buche 12,5 Kilogramm CO2. Sie müssten also 80 Bäume pflanzen, um jährlich eine Tonne CO2 durch Bäume wieder zu kompensieren. Zu beachten ist, dass Bäume in den ersten Jahren nach Pflanzung eher geringe Biomassevorräte anlegen. Erst mit zunehmendem Alter wird vermehrt CO2 gebunden.</string>
 </resources>
