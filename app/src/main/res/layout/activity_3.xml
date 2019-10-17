@@ -21,23 +21,22 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView_baumIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/TextView_ueberschrift_hilfe"
-        android:layout_marginTop="15dp"
-        android:text="@string/label_textView_baum"
-        android:textSize="170sp" />
-
-    <TextView
         android:id="@+id/textView_infotext"
         android:layout_width="match_parent"
-        android:layout_height="404dp"
+        android:layout_height="330dp"
         android:layout_below="@id/TextView_ueberschrift_hilfe"
         android:layout_marginTop="15dp"
-        android:layout_toRightOf="@id/textView_baumIcon"
+
+        android:layout_toRightOf="@id/imageView_baum"
         android:text="@string/label_textView_infotext" />
 
+    <ImageView
+        android:id="@+id/imageView_baum"
+        android:layout_width="198dp"
+        android:layout_height="228dp"
+        android:layout_below="@id/TextView_ueberschrift_hilfe"
+        android:layout_marginTop="15dp"
+        app:srcCompat="@drawable/baum" />
 
 </RelativeLayout>
 

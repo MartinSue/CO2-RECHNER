@@ -22,6 +22,6 @@
     <string name="label_button_hilfe">💡Hilfe</string>
 
     <!--Activity2-->
-    <string name="label_textView_baum">"\uD83C\uDF33"</string>
+    <string name="label_textView_baum"></string>
     <string name="label_textView_infotext">Um eine Tonne CO2 aufnehmen zu können, muss die Buche etwa 80 Jahre wachsen. Das heißt: Pro Jahr bindet die Buche 12,5 Kilogramm CO2. Sie müssten also 80 Bäume pflanzen, um jährlich eine Tonne CO2 durch Bäume wieder zu kompensieren. Zu beachten ist, dass Bäume in den ersten Jahren nach Pflanzung eher geringe Biomassevorräte anlegen. Erst mit zunehmendem Alter wird vermehrt CO2 gebunden.</string>
 </resources>

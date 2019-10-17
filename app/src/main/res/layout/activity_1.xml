@@ -9,7 +9,7 @@
     tools:context=".Activity1">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center|right|top|left"
