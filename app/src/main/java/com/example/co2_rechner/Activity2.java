@@ -41,12 +41,12 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
 
         Intent intent = getIntent();
-        nameAnzeige.setText("Name: " + intent.getStringExtra("nameUebergabe"));
-        kraftstoffAnzeige.setText("Kraftstoffart: " + intent.getStringExtra("kraftstoffUebergabe"));
-        verbrauchAnzeige.setText("Kraftstoffverbrauch: " + intent.getStringExtra("verbrauchUebergabe") + " Liter auf 100 km");
-        streckeAnzeige.setText("Strecke: " + intent.getStringExtra("streckeUebergabe") + " Kilometer");
-        ergebnis1Anzeige.setText("Co2 Belastung pro 100km : " + intent.getStringExtra("ergebnisBerechnung1") + " Kilogramm Co2/100km");
-        ergebnis2Anzeige.setText("Co2 Belastung insgesamt: " + intent.getStringExtra("ergebnisBerechnung2") + " Kilogramm Co2");
+        nameAnzeige.setText(intent.getStringExtra("nameUebergabe"));
+        kraftstoffAnzeige.setText(intent.getStringExtra("kraftstoffUebergabe"));
+        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + " Liter auf 100 km");
+        streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + " Kilometer");
+        ergebnis1Anzeige.setText(intent.getStringExtra("ergebnisBerechnung1") + " Kilogramm Co2/100km");
+        ergebnis2Anzeige.setText(intent.getStringExtra("ergebnisBerechnung2") + " Kilogramm Co2");
 
         Ergebnis2 = Double.parseDouble(intent.getStringExtra("ergebnisBerechnung2"));
         treeAnzeige.setText(anzahlTree());
