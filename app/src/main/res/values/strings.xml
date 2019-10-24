@@ -22,6 +22,9 @@
     <string name="label_button_berechnung">BERECHNEN</string>
     <string name="label_button_hilfe">💡Hilfe</string>
     <!--Activity2-->
+    <string name="label_UeberschriftSeite2">Ergebnis</string>
+    <string name="label_Ergebnis1Ueberschrift">Spezifischer Co²-Verbrauch</string>
+    <string name="label_Ergebnis2Ueberschrift">Absoluter Co²-Verbrauch</string>
 
 
 

@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity implements View.OnClickListener {
     TextView verbrauchAnzeige;
@@ -35,29 +34,28 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         nameAnzeige = findViewById(R.id.textView_nameAnzeige);
         ergebnis1Anzeige = findViewById(R.id.textView_ergebnis1Anzeige);
         ergebnis2Anzeige = findViewById(R.id.textView_ergebnis2Anzeige);
-        treeAnzeige = findViewById(R.id.textView_tree);
+        treeAnzeige = findViewById(R.id.textView_trees);
         infoSeite = findViewById(R.id.button_InfoSeite);
         infoSeite.setOnClickListener(this);
 
 
         Intent intent = getIntent();
         nameAnzeige.setText(intent.getStringExtra("nameUebergabe"));
-        kraftstoffAnzeige.setText(intent.getStringExtra("kraftstoffUebergabe"));
-        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + " Liter auf 100 km");
+        //kraftstoffAnzeige.setText(intent.getStringExtra("kraftstoffUebergabe"));
+        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + " Liter " + intent.getStringExtra("kraftstoffUebergabe") + " auf 100 km");
         streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + " Kilometer");
-        ergebnis1Anzeige.setText(intent.getStringExtra("ergebnisBerechnung1") + " Kilogramm Co2/100km");
-        ergebnis2Anzeige.setText(intent.getStringExtra("ergebnisBerechnung2") + " Kilogramm Co2");
-
+        ergebnis1Anzeige.setText(intent.getStringExtra("ergebnisBerechnung1") + " g Co2/100km");
+        ergebnis2Anzeige.setText(intent.getStringExtra("ergebnisBerechnung2") + " g Co2");
         Ergebnis2 = Double.parseDouble(intent.getStringExtra("ergebnisBerechnung2"));
         treeAnzeige.setText(anzahlTree());
 
     }
 
     protected String anzahlTree() {
-        double treeMenge = Ergebnis2 / 2600;
+        double treeMenge = Ergebnis2 / 10000;
         anzahlTree = "";
 
-        for (int count = 0; count <= treeMenge; count++) {
+        for (int count = 0; count < treeMenge; count++) {
             anzahlTree = anzahlTree + "\uD83C\uDF33";
         }
 
