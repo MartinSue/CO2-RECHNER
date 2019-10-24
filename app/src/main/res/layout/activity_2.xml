@@ -1,114 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:background="#FFFFFE"
     android:orientation="vertical"
     tools:actionBarNavMode="logo"
     tools:context=".Activity2">
 
     <TextView
-        android:id="@+id/textView_nameAnzeigeBez"
+        android:id="@+id/textView_UeberschriftSeite2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#1E453B"
-        android:fontFamily="sans-serif"
-        android:gravity="center|center_horizontal"
-        android:shadowColor="#000000"
-        android:text="@string/label_textview_bezeichnung"
+        android:layout_alignParentStart="true"
+        android:background="#759144"
+        android:foregroundGravity="clip_horizontal|center"
+        android:gravity="center"
+        android:text="@string/label_UeberschriftSeite2"
         android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="58dp"
+        android:layout_below="@id/textView_UeberschriftSeite2"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/headerdesign" />
 
     <TextView
         android:id="@+id/textView_nameAnzeige"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_below="@id/imageView2"
+        android:layout_alignParentStart="false"
+        android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
-        android:textColor="#263C36"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView_nameAnzeigeBez7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#E61E453B"
-        android:fontFamily="sans-serif"
-        android:gravity="center|center_horizontal"
-        android:text="@string/label_textview_kraftstoffart"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView_kraftstoffartAnzeige"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FFFFFF"
-        android:fontFamily="sans-serif"
-        android:gravity="center|center_horizontal"
-        android:textColor="#263C36"
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView_nameAnzeigeBez3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#CC1E453B"
-        android:fontFamily="sans-serif"
-        android:gravity="center|center_horizontal"
-        android:text="@string/label_textview_verbrauch"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp" />
+        android:textColor="#6A7E3D"
+        android:textSize="25sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView_verbrauchAnzeige"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_below="@id/textView_nameAnzeige"
+        android:layout_alignParentLeft="true"
+        android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
-        android:textColor="#263C36"
+        android:textColor="#6A7E3D"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView_nameAnzeigeBez4"
-        android:layout_width="match_parent"
+        android:id="@+id/textView_kraftstoffartAnzeige"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#B31E453B"
+        android:layout_below="@id/textView_verbrauchAnzeige"
+        android:layout_alignRight="@id/textView_verbrauchAnzeige"
+        android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
-        android:text="@string/label_textview_strecke"
-        android:textColor="#FFFFFF"
+        android:textColor="#6A7E3D"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView_streckeAnzeige"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFFFFF"
+        android:layout_below="@id/textView_kraftstoffartAnzeige"
+        android:background="#FFFFFE"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
-        android:textColor="#263C36"
+        android:textColor="#6A7E3D"
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView_nameAnzeigeBez5"
+        android:id="@+id/textView_ergebnis1Titel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#991E453B"
+        android:layout_below="@id/textView_streckeAnzeige"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="38dp"
+        android:background="#CC759144"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
-        android:text="Ergebnis1:"
-        android:textColor="#FFFFFF"
+        android:text="@string/label_Ergebnis1Ueberschrift"
+        android:textColor="#FFFFFE"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView_ergebnis1Anzeige"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView_ergebnis1Titel"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="-2dp"
+        android:layout_marginTop="-2dp"
         android:background="#FFFFFF"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
@@ -116,20 +107,26 @@
         android:textSize="24sp" />
 
     <TextView
-        android:id="@+id/textView_nameAnzeigeBez6"
+        android:id="@+id/textView_ergebnis2Titel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#801E453B"
+        android:layout_below="@id/textView_ergebnis1Anzeige"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="14dp"
+        android:background="#99759144"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
-        android:text="Ergebnis2:"
-        android:textColor="#FFFFFF"
+        android:text="@string/label_Ergebnis2Ueberschrift"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFE"
         android:textSize="24sp" />
 
     <TextView
         android:id="@+id/textView_ergebnis2Anzeige"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/textView_ergebnis2Titel"
         android:background="#FFFFFF"
         android:fontFamily="sans-serif"
         android:gravity="center|center_horizontal"
@@ -140,28 +137,24 @@
         android:id="@+id/scrollview_trees"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="0dp">
+        android:layout_below="@id/textView_ergebnis2Anzeige"
+        android:layout_marginTop="20dp">
 
         <TextView
-            android:id="@+id/textView_tree"
+            android:id="@+id/textView_trees"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1dp"
-            android:textColor="#009688"
-            android:textSize="36sp" />
+            android:layout_marginBottom="20sp"
+            android:textSize="30sp" />
     </ScrollView>
 
     <Button
         android:id="@+id/button_InfoSeite"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginEnd="-4dp"
-        android:layout_marginRight="-4dp"
-        android:layout_marginBottom="8dp"
-        android:background="#00FFFFFF"
-        android:gravity="center_horizontal"
-        android:text="Info"
-        android:textSize="10sp" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="info" />
 
-</LinearLayout>
+</RelativeLayout>
