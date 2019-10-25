@@ -10,5 +10,7 @@ public class Activity4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
+
+        DatenbankManager _datenbankManager = new DatenbankManager(this);
     }
 }
