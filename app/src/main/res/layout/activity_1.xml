@@ -9,11 +9,11 @@
     tools:context=".Activity1">
 
     <ImageView
-        android:id="@+id/imageView_header"
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/headers1" />
+        android:scaleType="fitStart"
+        android:src="@drawable/headerdesign" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,16 +27,18 @@
             <TextView
                 android:id="@+id/textView_name"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
                 android:layout_marginTop="1dp"
-                android:background="#759144"
+                android:layout_marginEnd="0dp"
+                android:background="@drawable/hgu"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
+                android:maxHeight="30dp"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_bezeichnung"
-                android:textColor="#FFFFFF"
+                android:textColor="#414B37"
                 android:textSize="18sp" />
 
             <EditText
@@ -44,6 +46,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textView_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
@@ -58,13 +62,14 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/plainText_name"
                 android:layout_marginTop="15dp"
-                android:background="#CC759144"
+                android:background="@drawable/hgu"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center_horizontal|center_vertical"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_kraftstoffart"
-                android:textColor="#FFFFFF"
+                android:textColor="#414B37"
+                android:textColorHighlight="#00FFFFFF"
                 android:textSize="18sp" />
 
             <Spinner
@@ -72,6 +77,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textView_kraftstoffart"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:minHeight="30dp"
@@ -83,13 +90,13 @@
                 android:layout_height="match_parent"
                 android:layout_below="@id/spinner_kraftstoffart"
                 android:layout_marginTop="15dp"
-                android:background="#B3759144"
+                android:background="@drawable/hgu"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_kraftstoffverbrauch"
-                android:textColor="#FFFFFF"
+                android:textColor="#414B37"
                 android:textSize="18sp" />
 
             <SeekBar
@@ -97,6 +104,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textView_kraftstoffverbrauch"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="#FFFFFF"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:max="2525"
@@ -121,13 +130,13 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="-2dp"
-                android:background="#99759144"
+                android:background="@drawable/hgu"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:minHeight="30dp"
                 android:text="@string/label_textview_strecke"
-                android:textColor="#FFFFFF"
+                android:textColor="#414B37"
                 android:textSize="18sp" />
 
             <EditText
@@ -135,6 +144,7 @@
                 android:layout_width="302dp"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textView_strecke"
+                android:layout_marginLeft="10dp"
                 android:background="#FFFFFF"
                 android:ems="10"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
@@ -167,13 +177,13 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="76dp"
                 android:layout_marginTop="43dp"
-                android:background="#72759144"
+                android:background="@drawable/hgu"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
                 android:gravity="center|center_horizontal"
                 android:minHeight="30dp"
                 android:text="@string/label_button_berechnung"
-                android:textColor="#FFFFFF"
+                android:textColor="#414B37"
                 android:textSize="18sp" />
 
             <Button

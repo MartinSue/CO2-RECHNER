@@ -17,6 +17,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     TextView ergebnis2Anzeige;
     TextView treeAnzeige;
     Button infoSeite;
+    Button datenbank;
     String anzahlTree;
     Double Ergebnis2;
 
@@ -30,13 +31,14 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_2);
         verbrauchAnzeige = findViewById(R.id.textView_verbrauchAnzeige);
         streckeAnzeige = findViewById(R.id.textView_streckeAnzeige);
-        kraftstoffAnzeige = findViewById(R.id.textView_kraftstoffartAnzeige);
         nameAnzeige = findViewById(R.id.textView_nameAnzeige);
         ergebnis1Anzeige = findViewById(R.id.textView_ergebnis1Anzeige);
         ergebnis2Anzeige = findViewById(R.id.textView_ergebnis2Anzeige);
         treeAnzeige = findViewById(R.id.textView_trees);
         infoSeite = findViewById(R.id.button_InfoSeite);
+        datenbank = findViewById(R.id.button_database);
         infoSeite.setOnClickListener(this);
+        datenbank.setOnClickListener(this);
 
 
         Intent intent = getIntent();
@@ -64,8 +66,14 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     }
 
     public void onClick(View view) {
-        Intent intent = new Intent(this, Activity3.class);
-        startActivity(intent);
+        if (view.getId() ==  R.id.button_InfoSeite) {
+            Intent intent = new Intent(this, Activity3.class);
+            startActivity(intent);
+        }else{
+            Intent intent = new Intent(this, Activity4.class);
+            startActivity(intent);
+
+        }
 
     }
 }
