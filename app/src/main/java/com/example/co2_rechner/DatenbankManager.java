@@ -1,30 +1,48 @@
 package com.example.co2_rechner;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatenbankManager extends SQLiteOpenHelper{
 
+    private static final String DB_NAME = "BERECHNUNGEN.db";
+    private static final int VERSION = 1;
+    private static final String TABLE_NAME = "berechnungen";
+
     public DatenbankManager (Context context){
-        super(context, "berechnung.db", null, 1);
+        super(context, DB_NAME, null, VERSION);
     }
 
     @Override
     public void onCreate (SQLiteDatabase db){
-        try{
+
+        String createTable = "CREATE TABLE TABLE_NAME " +
+                "( IDNote INTEGER PRIMARY KEY AUTOINCREMENT " +
+                " , Name TEXT " +
+                " , kraftstoff TEXT " +
+                " , verbrauch INTEGER " +
+                " , strecke DOUBLE " +
+                " , ergebnisSpezifisch DOUBLE" +
+                " , ergebnisAbsolut DOUBLE" +
+                ")";
+        db.execSQL(createTable);
+
+        /*try{
 
             db.execSQL(
-                    "CREATE TABLE berechnungen (" +
-                            "name TEXT NOT NULL, " +
-                            "kraftstoff TEXT NOT NULL," +
-                            "verbrauch INTEGER NOT NULL," +
-                            "strecke DOUBLE NOT NULL," +
-                            "ergebnisSpezifisch DOUBLE NOT NULL," +
-                            "ergebnisAbsolut DOUBLE NOT NULL ); "
+                    "CREATE TABLE TABLE_NAME (" +
+                            "name TEXT NOT NULL );"
+                            //"kraftstoff TEXT NOT NULL," +
+                            //"verbrauch INTEGER NOT NULL," +
+                            //"strecke DOUBLE NOT NULL," +
+                            //"ergebnisSpezifisch DOUBLE NOT NULL," +
+                            //"ergebnisAbsolut DOUBLE NOT NULL ); "
             );
 
-            db.execSQL("CREATE INDEX mein_index ON berechnungen (name);");
+            db.execSQL("CREATE INDEX mein_index_1 ON berechnungen (name);");
 
 
             db.execSQL("INSERT INTO berechnungen VALUES (1, 'Mercedes')");
@@ -33,12 +51,42 @@ public class DatenbankManager extends SQLiteOpenHelper{
 
         }catch (Exception e){
 
-        }
+        }*/
 
     }
 
     @Override
-    public void onUpgrade (SQLiteDatabase db, int oldVersion, int newVersion){
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
     }
+
+    public long add_Note(String name, String kraftstoff, double verbrauch, double strecke, double ergebnisSpezifisch, double ergebnisAbsolut){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("NAME", name);
+        values.put("KRAFTSTOFF", kraftstoff);
+        values.put("VERBRAUCH", verbrauch);
+        values.put("STRECKE", strecke);
+        values.put("ERGEBNIS_SPEZIFISCH", ergebnisSpezifisch);
+        values.put("ERGEBNIS_ABSOLUT", ergebnisAbsolut);
+
+        long newID = db.insert(TABLE_NAME, null, values);
+
+        if(newID == -1){
+            return -1;
+        }else{
+            return newID;
+        }
+    }
+
+    public Cursor get_Table(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sSQL = "SELECT * FROM TABLE_NAME";
+        Cursor data = db.rawQuery(sSQL, null);
+        return data;
+    }
+
 }
