@@ -1,12 +1,9 @@
 package com.example.co2_rechner;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,16 +38,16 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
     //Sonstige Variablen
     String kraftstoffAsString;
-    Double ergebnis1;
-    Double ergebnis2;
+    Double ergebnisSpezifisch;
+    Double ergebnisAbsolut;
 
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         kraftstoffAsString = parent.getItemAtPosition(position).toString();
         if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-            seekbar_textview.setText(seekbar_value + " Kilogramm/100km");
+            seekbar_textview.setText("" + seekbar_value + getText(R.string.kiloAufHundert));
         } else {
-            seekbar_textview.setText(seekbar_value + " Liter/100km");
+            seekbar_textview.setText("" + seekbar_value + getText(R.string.literAufHundert) );
             seekValue = seekbar_value;
         }
     }
@@ -81,15 +78,15 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
         seekbar.setMax(seekbar_max);
         seekbar.setProgress(seekbar_start);
-        seekbar_textview.setText(seekbar_start + " Liter/100km");
+        seekbar_textview.setText("" + seekbar_start + getText(R.string.literAufHundert));
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekbar_value = seekbar.getProgress();
                 if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-                    seekbar_textview.setText(seekbar_value + " Kilogramm/100km");
+                    seekbar_textview.setText("" + seekbar_value + getText(R.string.kiloAufHundert));
                 } else {
-                    seekbar_textview.setText(seekbar_value + " Liter/100km");
+                    seekbar_textview.setText("" + seekbar_value +  getText(R.string.literAufHundert));
                     seekValue = seekbar_value;
                 }
             }
@@ -129,29 +126,29 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 String strecke = getEditText_strecke.getText().toString();
 
                 if (kraftstoffAsString.equals("Benzin")) {
-                    ergebnis1 = seekbar_value * 23.2;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 23.2;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Diesel")) {
-                    ergebnis1 = seekbar_value * 26.5;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 26.5;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Autogas (LPG)")) {
-                    ergebnis1 = seekbar_value * 17.9;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 17.9;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-                    ergebnis1 = seekbar_value * 16.3;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 16.3;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Bitte auswählen...")) {
-                    Toast.makeText(getApplicationContext(), "Bitte Kraftstoff wählen!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getText(R.string.toastBitteKraftstoff), Toast.LENGTH_SHORT).show();
                     Exception f = new Exception();
                     throw (new Exception(f));
                 }
 
                 Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
-                _datenbankManager.add_Note(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnis1, ergebnis2 );
+                _datenbankManager.add_Note(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnisSpezifisch, ergebnisAbsolut);
 
 
 
@@ -160,8 +157,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
                 intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
                 intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
-                intent.putExtra("ergebnisBerechnung1", ergebnis1 + "");
-                intent.putExtra("ergebnisBerechnung2", ergebnis2 + "");
+                intent.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
+                intent.putExtra("ergebnisAbsolut", ergebnisAbsolut + "");
 
                 startActivity(intent);
             }
@@ -171,7 +168,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
             }
 
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Bitte numerischen Wert eingeben!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getText(R.string.toastBitteNumerischen), Toast.LENGTH_SHORT).show();
         }
 
     }

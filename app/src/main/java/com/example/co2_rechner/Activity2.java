@@ -43,11 +43,11 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
         Intent intent = getIntent();
         nameAnzeige.setText(intent.getStringExtra("nameUebergabe"));
-        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + R.string.liter + intent.getStringExtra("kraftstoffUebergabe") + R.string.auf100Kilometer);
-        streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + R.string.label_textview_kilometer);
-        ergebnisSpezifischAnzeige.setText(intent.getStringExtra("ergebnisBerechnung1"));
-        ergebnisAbsolutAnzeige.setText(intent.getStringExtra("ergebnisBerechnung2"));
-        ErgebnisAbsolut = intent.getStringExtra("ergebnisBerechnung2");
+        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + getString(R.string.liter) + intent.getStringExtra("kraftstoffUebergabe") + getString(R.string.auf100Kilometer));
+        streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + getString(R.string.label_textview_kilometer));
+        ergebnisSpezifischAnzeige.setText(intent.getStringExtra("ergebnisSpezifisch"));
+        ergebnisAbsolutAnzeige.setText(intent.getStringExtra("ergebnisAbsolut"));
+        ErgebnisAbsolut = intent.getStringExtra("ergebnisAbsolut");
     }
 
 

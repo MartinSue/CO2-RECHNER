@@ -25,12 +25,14 @@
     <string name="label_textview_kilometer">Kilometer</string>
     <string name="label_button_berechnung">BERECHNEN</string>
     <string name="label_button_hilfe">💡Hilfe</string>
+    <string name="kiloAufHundert"> Kilogramm/100km</string>
+    <string name="literAufHundert"> Liter/100km</string>
 
     <!--Activity2-->
     <string name="label_UeberschriftSeite2">Ergebnis</string>
     <string name="label_Ergebnis1Ueberschrift">Spezifischer Co²-Verbrauch</string>
     <string name="label_Ergebnis2Ueberschrift">Absoluter Co²-Verbrauch</string>
-    <string name="liter">Liter</string>
+    <string name="liter"> Liter </string>
     <string name="auf100Kilometer"> auf 100 Kilometer</string>
 
 
