@@ -1,12 +1,9 @@
 package com.example.co2_rechner;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -17,9 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Activity1 extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
-//TODO: Alle Strings auf R.strings beziehen!
 
-    String X;
     //Variablen für EditText
     protected EditText editText_name;
     protected EditText getEditText_strecke;
@@ -29,9 +24,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     protected int seekbar_value;
     protected int seekbar_max = 30;
     protected int seekbar_start = 0;
-
     public static int seekValue = 0;
-
 
     //Variable für Button
     protected Button button_berechnung;
@@ -39,10 +32,10 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
     //Sonstige Variablen
     String kraftstoffAsString;
-    Double ergebnis1;
-    Double ergebnis2;
+    Double ergebnisSpezifisch;
+    Double ergebnisAbsolut;
 
-
+    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         kraftstoffAsString = parent.getItemAtPosition(position).toString();
         if (kraftstoffAsString.equals("Erdgas (CNG)")) {
@@ -124,23 +117,23 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 String strecke = getEditText_strecke.getText().toString();
 
                 if (kraftstoffAsString.equals("Benzin")) {
-                    ergebnis1 = seekbar_value * 23.2;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 23.2;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Diesel")) {
-                    ergebnis1 = seekbar_value * 26.5;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 26.5;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Autogas (LPG)")) {
-                    ergebnis1 = seekbar_value * 17.9;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 17.9;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-                    ergebnis1 = seekbar_value * 16.3;
-                    ergebnis2 = rundeBetrag(ergebnis1 * Double.valueOf(strecke));
+                    ergebnisSpezifisch = seekbar_value * 16.3;
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
                 }
                 if (kraftstoffAsString.equals("Bitte auswählen...")) {
-                    Toast.makeText(getApplicationContext(), "Bitte Kraftstoff wählen!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.toastBitteKraftstoff, Toast.LENGTH_SHORT).show();
                     Exception f = new Exception();
                     throw (new Exception(f));
                 }
@@ -152,8 +145,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
                 intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
                 intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
-                intent.putExtra("ergebnisBerechnung1", ergebnis1 + "");
-                intent.putExtra("ergebnisBerechnung2", ergebnis2 + "");
+                intent.putExtra("ergebnisBerechnung1", ergebnisSpezifisch + "");
+                intent.putExtra("ergebnisBerechnung2", ergebnisAbsolut + "");
 
                 startActivity(intent);
             }
@@ -163,11 +156,13 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
             }
 
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Bitte numerischen Wert eingeben!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.toastBitteNumerischen, Toast.LENGTH_SHORT).show();
         }
 
     }
 
+
+    //Methode um Betrag zu runden
     public double rundeBetrag(double betrag) {
         double round = Math.round(betrag * 10000);
         round = round / 10000;

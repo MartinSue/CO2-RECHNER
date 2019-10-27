@@ -10,16 +10,15 @@ import android.widget.TextView;
 
 public class Activity2 extends AppCompatActivity implements View.OnClickListener {
     TextView verbrauchAnzeige;
-    TextView kraftstoffAnzeige;
     TextView nameAnzeige;
     TextView streckeAnzeige;
-    TextView ergebnis1Anzeige;
-    TextView ergebnis2Anzeige;
-    TextView treeAnzeige;
+    TextView ergebnisSpezifischAnzeige;
+    TextView ergebnisAbsolutAnzeige;
     Button infoSeite;
     Button datenbank;
+    Button baumAnzeige;
     String anzahlTree;
-    Double Ergebnis2;
+    String ErgebnisAbsolut;
 
 
     @Override
@@ -32,48 +31,42 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         verbrauchAnzeige = findViewById(R.id.textView_verbrauchAnzeige);
         streckeAnzeige = findViewById(R.id.textView_streckeAnzeige);
         nameAnzeige = findViewById(R.id.textView_nameAnzeige);
-        ergebnis1Anzeige = findViewById(R.id.textView_ergebnis1Anzeige);
-        ergebnis2Anzeige = findViewById(R.id.textView_ergebnis2Anzeige);
-        treeAnzeige = findViewById(R.id.textView_trees);
+        ergebnisSpezifischAnzeige = findViewById(R.id.textView_ergebnis1Anzeige);
+        ergebnisAbsolutAnzeige = findViewById(R.id.textView_ergebnis2Anzeige);
         infoSeite = findViewById(R.id.button_InfoSeite);
         datenbank = findViewById(R.id.button_database);
+        baumAnzeige = findViewById(R.id.button_BaumAnzeige);
         infoSeite.setOnClickListener(this);
         datenbank.setOnClickListener(this);
+        baumAnzeige.setOnClickListener(this);
 
 
         Intent intent = getIntent();
         nameAnzeige.setText(intent.getStringExtra("nameUebergabe"));
-        //kraftstoffAnzeige.setText(intent.getStringExtra("kraftstoffUebergabe"));
-        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + " Liter " + intent.getStringExtra("kraftstoffUebergabe") + " auf 100 km");
-        streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + " Kilometer");
-        ergebnis1Anzeige.setText(intent.getStringExtra("ergebnisBerechnung1") + " g Co2/100km");
-        ergebnis2Anzeige.setText(intent.getStringExtra("ergebnisBerechnung2") + " g Co2");
-        Ergebnis2 = Double.parseDouble(intent.getStringExtra("ergebnisBerechnung2"));
-        treeAnzeige.setText(anzahlTree());
-
+        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + R.string.liter + intent.getStringExtra("kraftstoffUebergabe") + R.string.auf100Kilometer);
+        streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + R.string.label_textview_kilometer);
+        ergebnisSpezifischAnzeige.setText(intent.getStringExtra("ergebnisBerechnung1"));
+        ergebnisAbsolutAnzeige.setText(intent.getStringExtra("ergebnisBerechnung2"));
+        ErgebnisAbsolut = intent.getStringExtra("ergebnisBerechnung2");
     }
 
-    protected String anzahlTree() {
-        double treeMenge = Ergebnis2 / 10000;
-        anzahlTree = "";
 
-        for (int count = 0; count < treeMenge; count++) {
-            anzahlTree = anzahlTree + "\uD83C\uDF33";
-        }
-
-        return anzahlTree;
-
-    }
-
+    @Override
     public void onClick(View view) {
-        if (view.getId() ==  R.id.button_InfoSeite) {
+        if (view.getId() == R.id.button_InfoSeite) {
             Intent intent = new Intent(this, Activity3.class);
             startActivity(intent);
-        }else{
+        }
+        if (view.getId() == R.id.button_database) {
             Intent intent = new Intent(this, Activity4.class);
             startActivity(intent);
 
         }
+        if (view.getId() == R.id.button_BaumAnzeige) {
+            Intent intent = new Intent(this, Activity5.class);
+            intent.putExtra("ergebnisAbsolut", ErgebnisAbsolut);
+            startActivity(intent);
 
+        }
     }
 }
