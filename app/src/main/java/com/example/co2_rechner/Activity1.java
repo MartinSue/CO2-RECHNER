@@ -19,6 +19,8 @@ import android.widget.Toast;
 public class Activity1 extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener{
 //TODO: Alle Strings auf R.strings beziehen!
 
+    DatenbankManager _datenbankManager;
+
     String X;
     //Variablen für EditText
     protected EditText editText_name;
@@ -62,6 +64,9 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_1);
+
+        //Datenbank
+        _datenbankManager = new DatenbankManager(this);
 
         //Spinner wird definiert und array items aus string.xml gelesen
         Spinner spinner = findViewById(R.id.spinner_kraftstoffart);
@@ -145,6 +150,9 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                     throw (new Exception(f));
                 }
 
+                Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
+                _datenbankManager.add_Note(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnis1, ergebnis2 );
+
 
 
                 Intent intent = new Intent(this, Activity2.class);
@@ -176,7 +184,4 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         round = Math.round(round * 100);
         return round / 100;
     }
-
-
-
 }

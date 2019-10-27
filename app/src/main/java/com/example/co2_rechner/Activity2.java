@@ -28,8 +28,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
         getSupportActionBar().hide();
 
-        DatenbankManager _datenbankManager = new DatenbankManager(this);
-
         setContentView(R.layout.activity_2);
         verbrauchAnzeige = findViewById(R.id.textView_verbrauchAnzeige);
         streckeAnzeige = findViewById(R.id.textView_streckeAnzeige);

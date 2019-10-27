@@ -1,6 +1,8 @@
 package com.example.co2_rechner;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -21,9 +23,10 @@ public class DatenbankManager extends SQLiteOpenHelper{
                 "( IDNote INTEGER PRIMARY KEY AUTOINCREMENT " +
                 " , Name TEXT " +
                 " , kraftstoff TEXT " +
+                " , verbrauch INTEGER " +
                 " , strecke DOUBLE " +
-                " , ergebnisSpezifisch " +
-                " , ergebnisAbsolut " +
+                " , ergebnisSpezifisch DOUBLE" +
+                " , ergebnisAbsolut DOUBLE" +
                 ")";
         db.execSQL(createTable);
 
@@ -55,6 +58,35 @@ public class DatenbankManager extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
+    }
+
+    public long add_Note(String name, String kraftstoff, double verbrauch, double strecke, double ergebnisSpezifisch, double ergebnisAbsolut){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("NAME", name);
+        values.put("KRAFTSTOFF", kraftstoff);
+        values.put("VERBRAUCH", verbrauch);
+        values.put("STRECKE", strecke);
+        values.put("ERGEBNIS_SPEZIFISCH", ergebnisSpezifisch);
+        values.put("ERGEBNIS_ABSOLUT", ergebnisAbsolut);
+
+        long newID = db.insert(TABLE_NAME, null, values);
+
+        if(newID == -1){
+            return -1;
+        }else{
+            return newID;
+        }
+    }
+
+    public Cursor get_Table(){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sSQL = "SELECT * FROM TABLE_NAME";
+        Cursor data = db.rawQuery(sSQL, null);
+        return data;
     }
 
 }
