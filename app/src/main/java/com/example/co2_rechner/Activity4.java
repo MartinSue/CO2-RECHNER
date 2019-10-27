@@ -2,6 +2,7 @@ package com.example.co2_rechner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 public class Activity4 extends AppCompatActivity {
@@ -11,6 +12,8 @@ public class Activity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
 
-        DatenbankManager _datenbankManager = new DatenbankManager(this);
+        getSupportActionBar().hide();
+
+
     }
 }
