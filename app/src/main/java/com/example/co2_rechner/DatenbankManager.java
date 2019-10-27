@@ -3,6 +3,7 @@ package com.example.co2_rechner;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -81,12 +82,27 @@ public class DatenbankManager extends SQLiteOpenHelper{
         }
     }
 
-    public Cursor get_Table(){
+    public String[] get_Table() throws SQLException {
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        String sSQL = "SELECT * FROM TABLE_NAME";
-        Cursor data = db.rawQuery(sSQL, null);
-        return data;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(
+                "SELECT * " +
+                        " FROM TABLE_NAME",
+                null
+        );
+
+        int resultRows = cursor.getCount();
+        if(resultRows == 0)
+            return new String[]{};
+
+        String[] resultStrings = new String [resultRows];
+
+        int counter = 0;
+        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
+            resultStrings[counter] = cursor.getString(0);
+            counter++;
+        }
+        return resultStrings;
     }
 
 }
