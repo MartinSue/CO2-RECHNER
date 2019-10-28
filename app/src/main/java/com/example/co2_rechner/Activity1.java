@@ -147,20 +147,27 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                     throw (new Exception(f));
                 }
 
+                //Daten in Datenbank einpflegen
+                //Auslagerung Methode (public void AddData)
                 Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
-                _datenbankManager.add_Note(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnisSpezifisch, ergebnisAbsolut);
+                boolean isInserted = _datenbankManager.insertData(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnisSpezifisch, ergebnisAbsolut);
+                if(isInserted = true) {
+                    Toast.makeText(this, "Daten wurden hinzugefügt", Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(this, Activity2.class);
+                    intent.putExtra("nameUebergabe", "" + editText_name.getText());
+                    intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
+                    intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
+                    intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
+                    intent.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
+                    intent.putExtra("ergebnisAbsolut", ergebnisAbsolut + "");
+
+                    startActivity(intent);
+                }else {
+                    Toast.makeText(this, "Daten wurden nicht hinzugefügt", Toast.LENGTH_LONG).show();
+                }
 
 
-
-                Intent intent = new Intent(this, Activity2.class);
-                intent.putExtra("nameUebergabe", "" + editText_name.getText());
-                intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
-                intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
-                intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
-                intent.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
-                intent.putExtra("ergebnisAbsolut", ergebnisAbsolut + "");
-
-                startActivity(intent);
             }
             if (view.getId() == R.id.button_hilfe) {
                 Intent intent = new Intent(this, Activity3.class);
