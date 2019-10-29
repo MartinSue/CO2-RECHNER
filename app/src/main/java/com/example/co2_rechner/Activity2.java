@@ -43,7 +43,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
         Intent intent = getIntent();
         nameAnzeige.setText(intent.getStringExtra("nameUebergabe"));
-        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + getString(R.string.liter) + intent.getStringExtra("kraftstoffUebergabe") + getString(R.string.auf100Kilometer));
+        verbrauchAnzeige.setText(intent.getStringExtra("verbrauchUebergabe") + getString(R.string.label_textview_liter) + intent.getStringExtra("kraftstoffUebergabe") + getString(R.string.label_textview_auf100Kilometer));
         streckeAnzeige.setText(intent.getStringExtra("streckeUebergabe") + getString(R.string.label_textview_kilometer));
         ergebnisSpezifischAnzeige.setText(intent.getStringExtra("ergebnisSpezifisch"));
         ergebnisAbsolutAnzeige.setText(intent.getStringExtra("ergebnisAbsolut"));
@@ -66,6 +66,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
             Intent intent = new Intent(this, Activity5.class);
             intent.putExtra("ergebnisAbsolut", ErgebnisAbsolut);
             startActivity(intent);
+
 
         }
     }

@@ -45,9 +45,9 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         kraftstoffAsString = parent.getItemAtPosition(position).toString();
         if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-            seekbar_textview.setText("" + seekbar_value + getText(R.string.kiloAufHundert));
+            seekbar_textview.setText("" + seekbar_value + getText(R.string.label_textview_kiloAufHundert));
         } else {
-            seekbar_textview.setText("" + seekbar_value + getText(R.string.literAufHundert) );
+            seekbar_textview.setText("" + seekbar_value + getText(R.string.label_textview_literAufHundert) );
             seekValue = seekbar_value;
         }
     }
@@ -78,15 +78,15 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
         seekbar.setMax(seekbar_max);
         seekbar.setProgress(seekbar_start);
-        seekbar_textview.setText("" + seekbar_start + getText(R.string.literAufHundert));
+        seekbar_textview.setText("" + seekbar_start + getText(R.string.label_textview_literAufHundert));
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 seekbar_value = seekbar.getProgress();
                 if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-                    seekbar_textview.setText("" + seekbar_value + getText(R.string.kiloAufHundert));
+                    seekbar_textview.setText("" + seekbar_value + getText(R.string.label_textview_kiloAufHundert));
                 } else {
-                    seekbar_textview.setText("" + seekbar_value +  getText(R.string.literAufHundert));
+                    seekbar_textview.setText("" + seekbar_value +  getText(R.string.label_textview_literAufHundert));
                     seekValue = seekbar_value;
                 }
             }

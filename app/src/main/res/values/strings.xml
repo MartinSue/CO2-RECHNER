@@ -22,18 +22,18 @@
     <string name="label_textview_verbrauch">Verbrauch</string>
     <string name="label_textview_strecke">Strecke</string>
     <string name="hint_km">Bitte eingeben...</string>
-    <string name="label_textview_kilometer">Kilometer</string>
+    <string name="label_textview_kilometer">  \u0020Kilometer</string>
     <string name="label_button_berechnung">BERECHNEN</string>
     <string name="label_button_hilfe">💡Hilfe</string>
-    <string name="label_textview_kiloAufHundert"> Kilogramm/100km</string>
-    <string name="label_textview_literAufHundert"> Liter/100km</string>
+    <string name="label_textview_kiloAufHundert"> \u0020 Kilogramm/100km</string>
+    <string name="label_textview_literAufHundert"> \u0020 Liter/100km</string>
 
     <!--Activity2-->
     <string name="label_ueberschriftSeite2">Ergebnis</string>
     <string name="label_textview_ergebnisSpezifischUeberschrift">Spezifischer Co²-Verbrauch</string>
     <string name="label_textview_ergebnisAbsolutUeberschrift">Absoluter Co²-Verbrauch</string>
-    <string name="label_textview_liter"> Liter </string>
-    <string name="label_textview_auf100Kilometer"> auf 100 Kilometer</string>
+    <string name="label_textview_liter"> \u0020 Liter \u0020</string>
+    <string name="label_textview_auf100Kilometer">  \u0020 auf 100 Kilometer</string>
 
 
 
@@ -42,5 +42,8 @@
     <string name="label_textView_baum"></string>
     <string name="label_textView_infotext">Dieser Rechner berechnet den Co²-Ausstoß eines Kfz in Abhängigkeit von Verbrauch, Strecke und Kraftstoff. Das ausgestoßene Co² muss anschließend wieder aus der Erdatmosphäre entfernt werden. Die Natur bietet hierzu einige Möglichkeiten: Innerhalb eines Jahres kann ein Baum durchschnittlich 10kg Co² aufnehmen. Die Anzahl der Grafik dargestellten Bäume entspricht der Menge, die ein Jahr lang wachsen muss, um das entstandene Co² aufzunehmen. </string>
     <!--Activity3-->
-    <string name="label_textview_baumText">Zur Kompensation des Co²-Ausstoß müssten </string>
+    <string name="label_textview_baumAnzahlMehrzahl1">Zur Kompensation des Co²-Ausstoßes müssten\u0020</string>
+    <string name="label_textview_baumAnzahlMehrzahl2">\u0020 Bäume gepflanzt werden.\u0020</string>
+    <string name="label_textview_baumAnzahlEinzahl1">Zur Kompensation des Co²-Ausstoßes muss\u0020</string>
+    <string name="label_textview_baumAnzahlEinzahl2">\u0020 Baum gepflanzt werden.\u0020</string>
 </resources>

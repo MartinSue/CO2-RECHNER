@@ -7,18 +7,28 @@
     android:orientation="vertical"
     tools:context=".Activity5">
 
-    <TextView
-        android:id="@+id/textView_Baum"
+    <ImageView
+        android:id="@+id/imageView_Header3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/baumText" />
+        android:scaleType="fitStart"
+        app:srcCompat="@drawable/headerdesign" />
+
+
+    <TextView
+        android:id="@+id/textView_BaumAnzahl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:fontFamily="sans-serif-condensed-light"
+        android:textColor="#414B37"
+        android:textSize="18sp" />
 
     <ScrollView
         android:id="@+id/scrollview_trees"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/button_InfoSeite"
-        android:layout_below="@id/textView_ergebnis2Anzeige"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="10dp">
@@ -31,10 +41,4 @@
             android:textSize="30sp" />
     </ScrollView>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="TextView" />
 </LinearLayout>
