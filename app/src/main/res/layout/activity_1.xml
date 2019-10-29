@@ -37,7 +37,7 @@
                 android:shadowColor="#00685D5D"
                 android:text="@string/label_textview_bezeichnung"
                 android:textColor="#414B37"
-                android:textSize="18sp" />
+                android:textSize="30sp" />
 
             <EditText
                 android:id="@+id/plainText_name"
