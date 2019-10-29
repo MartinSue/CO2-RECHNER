@@ -1,17 +1,14 @@
 package com.example.co2_rechner;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 public class Activity2 extends AppCompatActivity implements View.OnClickListener {
-    DatenbankManager _datenbankManager;
 
     TextView verbrauchAnzeige;
     TextView nameAnzeige;
@@ -31,8 +28,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().hide();
-
-        _datenbankManager = new DatenbankManager(this);
 
         setContentView(R.layout.activity_2);
         verbrauchAnzeige = findViewById(R.id.textView_verbrauchAnzeige);
@@ -68,47 +63,14 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         }
         if (view.getId() == R.id.button_database) {
 
-            Cursor res = _datenbankManager.getAllData();
-            if(res.getCount() == 0){
-                //Nachricht anzeigen
-                showMessage("Error", "Nothing found :(");
-                return;
-            }
-
-            StringBuffer buffer = new StringBuffer();
-            while(res.moveToNext()){
-                buffer.append("Id :" + res.getString(0) + "\n");
-                buffer.append("Name :" + res.getString(1) + "\n");
-                buffer.append("Kraftstoff :" + res.getString(2) + "\n");
-                buffer.append("Verbrauch :" + res.getString(3) + "\n");
-                buffer.append("Strecke :" + res.getString(4) + "\n");
-                buffer.append("Ergebnis Spezifisch :" + res.getString(5) + "\n");
-                buffer.append("Ergebnis Absolut :" + res.getString(6) + "\n\n");
-            }
-
-            //Daten anzeigen
-            showMessage("Data", buffer.toString());
-
-            /*Intent intent = new Intent(this, Activity4.class);
-            startActivity(intent);*/
+            Intent intent = new Intent(this, Activity4.class);
+            startActivity(intent);
 
         }
         if (view.getId() == R.id.button_BaumAnzeige) {
             Intent intent = new Intent(this, Activity5.class);
             intent.putExtra("ergebnisAbsolut", ErgebnisAbsolut);
             startActivity(intent);
-
-
         }
-
-
-    }
-
-    public void showMessage (String title, String Message){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(Message);
-        builder.show();
     }
 }
