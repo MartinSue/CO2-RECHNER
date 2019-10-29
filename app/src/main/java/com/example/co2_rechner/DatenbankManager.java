@@ -3,15 +3,22 @@ package com.example.co2_rechner;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatenbankManager extends SQLiteOpenHelper{
 
-    private static final String DB_NAME = "BERECHNUNGEN.db";
+    private static final String DB_NAME = "CO2_RECHNER.db";
     private static final int VERSION = 1;
-    private static final String TABLE_NAME = "berechnungen";
+    private static final String TABLE_NAME = "co2_rechner";
+    private static final String COL_1 = "ID";
+    private static final String COL_2 = "NAME";
+    private static final String COL_3 = "KRAFTSTOFF";
+    private static final String COL_4 = "VERBRAUCH";
+    private static final String COL_5 = "STRECKE";
+    private static final String COL_6 = "ERGEBNIS_SPEZIFISCH";
+    private static final String COL_7 = "ERGEBNIS_ABSOLUT";
+
 
     public DatenbankManager (Context context){
         super(context, DB_NAME, null, VERSION);
@@ -20,40 +27,23 @@ public class DatenbankManager extends SQLiteOpenHelper{
     @Override
     public void onCreate (SQLiteDatabase db){
 
-        String createTable = "CREATE TABLE TABLE_NAME " +
-                "( IDNote INTEGER PRIMARY KEY AUTOINCREMENT " +
-                " , Name TEXT " +
-                " , kraftstoff TEXT " +
-                " , verbrauch INTEGER " +
-                " , strecke DOUBLE " +
-                " , ergebnisSpezifisch DOUBLE" +
-                " , ergebnisAbsolut DOUBLE" +
-                ")";
-        db.execSQL(createTable);
+    try {
+        db.execSQL(
+                "CREATE TABLE "+ TABLE_NAME +" (" +
+                        "ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "NAME TEXT NOT NULL, " +
+                        "KRAFTSTOFF TEXT NOT NULL," +
+                        "VERBRAUCH INTEGER NOT NULL," +
+                        "STRECKE DOUBLE NOT NULL," +
+                        "ERGEBNIS_SPEZIFISCH DOUBLE NOT NULL," +
+                        "ERGEBNIS_ABSOLUT DOUBLE NOT NULL ); "
+        );
 
-        /*try{
+        db.execSQL("CREATE INDEX mein_index_1 ON TABLE_NAME (ID);");
 
-            db.execSQL(
-                    "CREATE TABLE TABLE_NAME (" +
-                            "name TEXT NOT NULL );"
-                            //"kraftstoff TEXT NOT NULL," +
-                            //"verbrauch INTEGER NOT NULL," +
-                            //"strecke DOUBLE NOT NULL," +
-                            //"ergebnisSpezifisch DOUBLE NOT NULL," +
-                            //"ergebnisAbsolut DOUBLE NOT NULL ); "
-            );
+    }catch (Exception e){
 
-            db.execSQL("CREATE INDEX mein_index_1 ON berechnungen (name);");
-
-
-            db.execSQL("INSERT INTO berechnungen VALUES (1, 'Mercedes')");
-            db.execSQL("INSERT INTO berechnungen VALUES (1, 'Polo')");
-
-
-        }catch (Exception e){
-
-        }*/
-
+    }
     }
 
     @Override
@@ -61,48 +51,25 @@ public class DatenbankManager extends SQLiteOpenHelper{
 
     }
 
-    public long add_Note(String name, String kraftstoff, double verbrauch, double strecke, double ergebnisSpezifisch, double ergebnisAbsolut){
-
+    public boolean insertData(String name, String kraftstoff, Integer verbrauch, Double strecke, Double ergebnisSpezifisch, Double ergebnisAbsolut){
         SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put("NAME", name);
-        values.put("KRAFTSTOFF", kraftstoff);
-        values.put("VERBRAUCH", verbrauch);
-        values.put("STRECKE", strecke);
-        values.put("ERGEBNIS_SPEZIFISCH", ergebnisSpezifisch);
-        values.put("ERGEBNIS_ABSOLUT", ergebnisAbsolut);
-
-        long newID = db.insert(TABLE_NAME, null, values);
-
-        if(newID == -1){
-            return -1;
-        }else{
-            return newID;
-        }
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, kraftstoff);
+        contentValues.put(COL_4, verbrauch);
+        contentValues.put(COL_5, strecke);
+        contentValues.put(COL_6, ergebnisSpezifisch);
+        contentValues.put(COL_7, ergebnisAbsolut);
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
     }
 
-    public String[] get_Table() throws SQLException {
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(
-                "SELECT * " +
-                        " FROM TABLE_NAME",
-                null
-        );
-
-        int resultRows = cursor.getCount();
-        if(resultRows == 0)
-            return new String[]{};
-
-        String[] resultStrings = new String [resultRows];
-
-        int counter = 0;
-        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
-            resultStrings[counter] = cursor.getString(0);
-            counter++;
-        }
-        return resultStrings;
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        return res;
     }
-
 }
