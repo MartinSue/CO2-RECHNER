@@ -6,7 +6,6 @@
     android:layout_height="wrap_content"
     android:background="#FFFFFE"
     android:orientation="vertical"
-    tools:actionBarNavMode="logo"
     tools:context=".Activity2">
 
     <ImageView

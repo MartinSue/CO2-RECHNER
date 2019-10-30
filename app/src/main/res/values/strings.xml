@@ -31,8 +31,8 @@
 
     <!--Activity2-->
     <string name="label_ueberschriftSeite2">Ergebnis</string>
-    <string name="label_textview_ergebnisSpezifischUeberschrift">Spezifischer Co²-Verbrauch</string>
-    <string name="label_textview_ergebnisAbsolutUeberschrift">Absoluter Co²-Verbrauch</string>
+    <string name="label_textview_ergebnisSpezifischUeberschrift">Spezifischer Co\u2082 -Verbrauch</string>
+    <string name="label_textview_ergebnisAbsolutUeberschrift">Absoluter Co\u2082 -Verbrauch</string>
     <string name="label_textview_liter"> \u0020 Liter \u0020</string>
     <string name="label_textview_auf100Kilometer">  \u0020 auf 100 Kilometer</string>
     <string name="label_button_datenbank">Datenbank</string>
@@ -43,14 +43,17 @@
 
 
     <!--Activity3-->
-    <string name="label_textView_infotext">Dieser Rechner berechnet den Co²-Ausstoß eines Kfz in Abhängigkeit von Verbrauch, Strecke und Kraftstoff. Das ausgestoßene Co² muss anschließend wieder aus der Erdatmosphäre entfernt werden. Die Natur bietet hierzu einige Möglichkeiten: Innerhalb eines Jahres kann ein Baum durchschnittlich 10kg Co² aufnehmen. Die Anzahl der Grafik dargestellten Bäume entspricht der Menge, die ein Jahr lang wachsen muss, um das entstandene Co² aufzunehmen. </string>
+    <string name="label_textView_infotext">Dieser Rechner berechnet den Co\u2082-Ausstoß eines Kfz in Abhängigkeit von Verbrauch, Strecke und Kraftstoff. Das ausgestoßene Co\u2082  muss anschließend wieder aus der Erdatmosphäre entfernt werden. Die Natur bietet hierzu einige Möglichkeiten: Innerhalb eines Jahres kann ein Baum durchschnittlich 10kg Co\u2082  aufnehmen. Die Anzahl der Grafik dargestellten Bäume entspricht der Menge, die ein Jahr lang wachsen muss, um das entstandene Co\u2082 aufzunehmen. </string>
     <string name="label_button_baum">Bäume</string>
     <string name="label_button_formel">Formel</string>
+    <string name="label_textview_gramm">g Co\u2082 </string>
+    <string name="label_textview_kilogramm">kg Co\u2082  </string>
+
 
     <!--Activity3-->
-    <string name="label_textview_baumAnzahlMehrzahl1">Zur Kompensation des Co²-Ausstoßes müssten\u0020</string>
+    <string name="label_textview_baumAnzahlMehrzahl1">Zur Kompensation des Co\u2082 -Ausstoßes müssten\u0020</string>
     <string name="label_textview_baumAnzahlMehrzahl2">\u0020 Bäume gepflanzt werden.\u0020</string>
-    <string name="label_textview_baumAnzahlEinzahl1">Zur Kompensation des Co²-Ausstoßes muss\u0020</string>
+    <string name="label_textview_baumAnzahlEinzahl1">Zur Kompensation des Co\u2082 -Ausstoßes muss\u0020</string>
     <string name="label_textview_baumAnzahlEinzahl2">\u0020 Baum gepflanzt werden.\u0020</string>
 
     <!--Activity4-->

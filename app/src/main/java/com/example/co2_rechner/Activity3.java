@@ -50,11 +50,11 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
 
         Intent intent = null;
         if(v.getId()== R.id.button_WebseiteBaum){
-        intent = createIntentBaum();
-        }else{
+        intent = createIntentFormel();
+        }  else if(v.getId()==R.id.button_WebseiteFormel){
             intent = createIntentBaum();
         }
+            startActivity(intent);
 
-        startActivity(intent);
     }
 }
