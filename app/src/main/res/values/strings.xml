@@ -27,6 +27,7 @@
     <string name="label_button_hilfe">💡Hilfe</string>
     <string name="label_textview_kiloAufHundert"> \u0020 Kilogramm/100km</string>
     <string name="label_textview_literAufHundert"> \u0020 Liter/100km</string>
+    <string name="contentDescription_header">Logo</string>
 
     <!--Activity2-->
     <string name="label_ueberschriftSeite2">Ergebnis</string>
@@ -34,12 +35,14 @@
     <string name="label_textview_ergebnisAbsolutUeberschrift">Absoluter Co²-Verbrauch</string>
     <string name="label_textview_liter"> \u0020 Liter \u0020</string>
     <string name="label_textview_auf100Kilometer">  \u0020 auf 100 Kilometer</string>
+    <string name="label_button_datenbank">Datenbank</string>
+    <string name="label_button_info">Info</string>
+    <string name="label_button_baumanzeige">Baumanzeige</string>
 
 
 
 
     <!--Activity3-->
-    <string name="label_textView_baum"></string>
     <string name="label_textView_infotext">Dieser Rechner berechnet den Co²-Ausstoß eines Kfz in Abhängigkeit von Verbrauch, Strecke und Kraftstoff. Das ausgestoßene Co² muss anschließend wieder aus der Erdatmosphäre entfernt werden. Die Natur bietet hierzu einige Möglichkeiten: Innerhalb eines Jahres kann ein Baum durchschnittlich 10kg Co² aufnehmen. Die Anzahl der Grafik dargestellten Bäume entspricht der Menge, die ein Jahr lang wachsen muss, um das entstandene Co² aufzunehmen. </string>
     <string name="label_button_baum">Bäume</string>
     <string name="label_button_formel">Formel</string>
