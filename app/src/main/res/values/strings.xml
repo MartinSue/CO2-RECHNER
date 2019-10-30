@@ -41,6 +41,9 @@
     <!--Activity3-->
     <string name="label_textView_baum"></string>
     <string name="label_textView_infotext">Dieser Rechner berechnet den Co²-Ausstoß eines Kfz in Abhängigkeit von Verbrauch, Strecke und Kraftstoff. Das ausgestoßene Co² muss anschließend wieder aus der Erdatmosphäre entfernt werden. Die Natur bietet hierzu einige Möglichkeiten: Innerhalb eines Jahres kann ein Baum durchschnittlich 10kg Co² aufnehmen. Die Anzahl der Grafik dargestellten Bäume entspricht der Menge, die ein Jahr lang wachsen muss, um das entstandene Co² aufzunehmen. </string>
+    <string name="label_button_baum">Bäume</string>
+    <string name="label_button_formel">Formel</string>
+
     <!--Activity3-->
     <string name="label_textview_baumAnzahlMehrzahl1">Zur Kompensation des Co²-Ausstoßes müssten\u0020</string>
     <string name="label_textview_baumAnzahlMehrzahl2">\u0020 Bäume gepflanzt werden.\u0020</string>

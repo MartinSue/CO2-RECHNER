@@ -59,7 +59,7 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/hgu"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="// Impliziter Intent" />
+        android:text="@string/label_button_formel" />
 
     <Button
         android:id="@+id/button_WebseiteBaum"
@@ -70,6 +70,6 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/hgu"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="// Impliziter Intent 2" />
+        android:text="@string/label_button_baum" />
 </RelativeLayout>
 
