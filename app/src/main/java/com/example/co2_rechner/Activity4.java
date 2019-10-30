@@ -5,12 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Activity4 extends AppCompatActivity {
 
     DatenbankManager _datenbankManager;
     TextView textView_datenbank;
+    EditText plainText_id;
+    Button button_loeschen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +28,20 @@ public class Activity4 extends AppCompatActivity {
         _datenbankManager = new DatenbankManager(this);
 
         textView_datenbank = findViewById(R.id.textView_datenbank);
+        plainText_id = findViewById(R.id.plainText_id);
+        button_loeschen = findViewById(R.id.button_loeschen);
+
+        button_loeschen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Integer deletedRows = _datenbankManager.deleteData(plainText_id.getText().toString());
+                if(deletedRows > 0) {
+                    Toast.makeText(Activity4.this, "Datensatz wurde gelöscht", Toast.LENGTH_LONG).show();
+                }else {
+                    Toast.makeText(Activity4.this, "Löschen fehlgeschlagen", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
 
         Cursor res = _datenbankManager.getAllData();
         if(res.getCount() == 0){

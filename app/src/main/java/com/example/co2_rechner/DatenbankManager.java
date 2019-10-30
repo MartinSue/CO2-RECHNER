@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class DatenbankManager extends SQLiteOpenHelper{
 
@@ -71,5 +72,10 @@ public class DatenbankManager extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
         return res;
+    }
+
+    public Integer deleteData (String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, "ID =?", new String[] {id});
     }
 }
