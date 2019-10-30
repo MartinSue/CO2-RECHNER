@@ -13,9 +13,10 @@
         android:id="@+id/imageView_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/contentDescription_header"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/headerdesign" />
 
     <TextView
@@ -50,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_nameAnzeige"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:background="#FFFFFE"
         android:fontFamily="sans-serif-condensed-light"
         android:gravity="center|center_horizontal"
@@ -127,16 +128,14 @@
         android:id="@+id/button_InfoSeite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentLeft="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
         android:layout_marginBottom="0dp"
-        android:layout_toRightOf="@id/button_database"
+        android:layout_toEndOf="@id/button_database"
         android:background="@drawable/hgu"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="info" />
+        android:text="@string/label_button_info" />
 
     <Button
         android:id="@+id/button_BaumAnzeige"
@@ -144,11 +143,11 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/button_database"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="45dp"
+        android:layout_marginStart="45dp"
         android:layout_marginBottom="0dp"
         android:background="@drawable/hgu"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Baumanzeige" />
+        android:text="@string/label_button_baumanzeige" />
 
     <Button
         android:id="@+id/button_database"
@@ -158,6 +157,6 @@
         android:layout_alignParentBottom="true"
         android:background="@drawable/hgu"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Datenbank" />
+        android:text="@string/label_button_datenbank" />
 
 </RelativeLayout>
