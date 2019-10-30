@@ -35,6 +35,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     //Variable für Button
     protected Button button_berechnung;
     protected Button button_hilfe;
+    protected Button button_datenbank_activity1;
 
     //Sonstige Variablen
     String kraftstoffAsString;
@@ -109,6 +110,16 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         //Button Hilfe
         button_hilfe = findViewById(R.id.button_hilfe);
         button_hilfe.setOnClickListener(this);
+
+        //Button Hilfe
+        button_datenbank_activity1 = findViewById(R.id.button_datenbank_activity1);
+        button_datenbank_activity1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent datenbank = new Intent(Activity1.this, Activity4.class);
+                startActivity(datenbank);
+            }
+        });
 
         //EditText
         editText_name = findViewById(R.id.plainText_name);

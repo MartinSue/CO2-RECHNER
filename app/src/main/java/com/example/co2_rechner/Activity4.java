@@ -31,6 +31,8 @@ public class Activity4 extends AppCompatActivity {
         plainText_id = findViewById(R.id.plainText_id);
         button_loeschen = findViewById(R.id.button_loeschen);
 
+        showDatabase();
+
         button_loeschen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,18 +42,21 @@ public class Activity4 extends AppCompatActivity {
                 }else {
                     Toast.makeText(Activity4.this, "Löschen fehlgeschlagen", Toast.LENGTH_LONG).show();
                 }
+                showDatabase();
             }
         });
 
+    }
+
+    public void showDatabase() {
         Cursor res = _datenbankManager.getAllData();
-        if(res.getCount() == 0){
-            //Nachricht anzeigen
+        if (res.getCount() == 0) {
             showMessage("Error", "Nothing found :(");
             return;
         }
 
         StringBuffer buffer = new StringBuffer();
-        while(res.moveToNext()){
+        while (res.moveToNext()) {
             buffer.append("Id :" + res.getString(0) + "\n");
             buffer.append(res.getString(1) + ": ");
             buffer.append("Kraftstoff :" + res.getString(2) + ", ");
@@ -61,7 +66,6 @@ public class Activity4 extends AppCompatActivity {
             buffer.append("Ergebnis Absolut :" + res.getString(6) + "\n\n");
         }
 
-        //Daten anzeigen
         textView_datenbank.setText(buffer.toString());
     }
 

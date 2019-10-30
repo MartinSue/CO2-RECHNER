@@ -211,6 +211,14 @@
                 android:text="@string/label_button_hilfe"
                 android:textSize="12sp" />
 
+            <Button
+                android:id="@+id/button_datenbank_activity1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_hilfe"
+                android:layout_centerHorizontal="true"
+                android:text="Datenbank" />
+
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>
