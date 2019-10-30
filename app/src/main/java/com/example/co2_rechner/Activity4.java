@@ -52,10 +52,9 @@ public class Activity4 extends AppCompatActivity {
 
     public void showDatabase() {
         Cursor res = _datenbankManager.getAllData();
-        if (res.getCount() == 0) {
+        if (res.getCount() == 0)
             showMessage("Error", "Nothing found :(");
-            return;
-        }
+
 
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
