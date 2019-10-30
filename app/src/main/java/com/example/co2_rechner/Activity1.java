@@ -41,6 +41,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     String kraftstoffAsString;
     Double ergebnisSpezifisch;
     Double ergebnisAbsolut;
+     boolean kilogramm = false;
 
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -139,18 +140,22 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 if (kraftstoffAsString.equals("Benzin")) {
                     ergebnisSpezifisch = rundeBetrag(seekbar_value * 23.2, 1);
                     ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
+                        ergebnisAbsolut = grammOderKilo(ergebnisAbsolut);
                 }
                 if (kraftstoffAsString.equals("Diesel")) {
                     ergebnisSpezifisch = rundeBetrag(seekbar_value * 26.5, 1);
                     ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
+                        ergebnisAbsolut = grammOderKilo(ergebnisAbsolut);
                 }
                 if (kraftstoffAsString.equals("Autogas (LPG)")) {
                     ergebnisSpezifisch = rundeBetrag(seekbar_value * 17.9, 1);
                     ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
+                        ergebnisAbsolut = grammOderKilo(ergebnisAbsolut);
                 }
                 if (kraftstoffAsString.equals("Erdgas (CNG)")) {
                     ergebnisSpezifisch = rundeBetrag(seekbar_value * 16.3, 1);
                     ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
+                        ergebnisAbsolut = grammOderKilo(ergebnisAbsolut);
                 }
                 if (kraftstoffAsString.equals("Bitte auswählen...")) {
                     Toast.makeText(getApplicationContext(), getText(R.string.toastBitteKraftstoff), Toast.LENGTH_SHORT).show();
@@ -171,7 +176,10 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                     intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
                     intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
                     intent.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
-                    intent.putExtra("ergebnisAbsolut", ergebnisAbsolut + "");
+                    intent.putExtra("ergebnisAbsolut", (""+ ergebnisAbsolut));
+                    intent.putExtra("flagFuerKilo", kilogramm);
+
+
 
                     startActivity(intent);
                 }else {
@@ -195,5 +203,14 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     private double rundeBetrag(double value, int decimalPoints) {
         double d = Math.pow(10, decimalPoints);
         return Math.round(value * d) / d;
+    }
+
+    private  double grammOderKilo(double absolutErgebnis){
+        if( absolutErgebnis > 1000){
+            absolutErgebnis = absolutErgebnis/1000;
+            kilogramm = true;
+            return absolutErgebnis;
+        }
+        return absolutErgebnis;
     }
 }
