@@ -137,20 +137,20 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 String strecke = getEditText_strecke.getText().toString();
 
                 if (kraftstoffAsString.equals("Benzin")) {
-                    ergebnisSpezifisch = seekbar_value * 23.2;
-                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
+                    ergebnisSpezifisch = rundeBetrag(seekbar_value * 23.2, 1);
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
                 }
                 if (kraftstoffAsString.equals("Diesel")) {
-                    ergebnisSpezifisch = seekbar_value * 26.5;
-                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
+                    ergebnisSpezifisch = rundeBetrag(seekbar_value * 26.5, 1);
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
                 }
                 if (kraftstoffAsString.equals("Autogas (LPG)")) {
-                    ergebnisSpezifisch = seekbar_value * 17.9;
-                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
+                    ergebnisSpezifisch = rundeBetrag(seekbar_value * 17.9, 1);
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
                 }
                 if (kraftstoffAsString.equals("Erdgas (CNG)")) {
-                    ergebnisSpezifisch = seekbar_value * 16.3;
-                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke));
+                    ergebnisSpezifisch = rundeBetrag(seekbar_value * 16.3, 1);
+                    ergebnisAbsolut = rundeBetrag(ergebnisSpezifisch * Double.valueOf(strecke), 1);
                 }
                 if (kraftstoffAsString.equals("Bitte auswählen...")) {
                     Toast.makeText(getApplicationContext(), getText(R.string.toastBitteKraftstoff), Toast.LENGTH_SHORT).show();
@@ -191,12 +191,9 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
     }
 
-    public double rundeBetrag(double betrag) {
-        double round = Math.round(betrag * 10000);
-        round = round / 10000;
-        round = Math.round(round * 1000);
-        round = round / 1000;
-        round = Math.round(round * 100);
-        return round / 100;
+
+    private double rundeBetrag(double value, int decimalPoints) {
+        double d = Math.pow(10, decimalPoints);
+        return Math.round(value * d) / d;
     }
 }
