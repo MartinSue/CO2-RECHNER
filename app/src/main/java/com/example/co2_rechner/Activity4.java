@@ -43,6 +43,8 @@ public class Activity4 extends AppCompatActivity {
                     Toast.makeText(Activity4.this, "Löschen fehlgeschlagen", Toast.LENGTH_LONG).show();
                 }
                 showDatabase();
+
+                plainText_id.setText("");
             }
         });
 
