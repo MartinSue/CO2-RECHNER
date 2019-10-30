@@ -9,13 +9,12 @@
     tools:context=".Activity1">
 
     <ImageView
-        android:id="@+id/imageView_Header2"
+        android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/headerdesign" />
+        android:scaleType="fitStart"
+        android:src="@drawable/headerdesign" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -30,6 +29,10 @@
                 android:id="@+id/textView_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="false"
+                android:layout_centerHorizontal="false"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="1dp"
                 android:background="#B0CD90"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center"
@@ -89,8 +92,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/spinner_kraftstoffart"
+                android:layout_alignParentEnd="false"
                 android:layout_centerInParent="true"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="17dp"
+                android:layout_marginEnd="0dp"
                 android:background="#80B0CD90"
                 android:fontFamily="sans-serif-condensed-light"
                 android:foregroundGravity="center_vertical|clip_horizontal|center"
@@ -128,7 +134,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/textView_kraftstoffverbrauch_zahl"
+                android:layout_alignParentEnd="false"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="0dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginEnd="-2dp"
                 android:background="#59B0CD90"
@@ -205,6 +213,4 @@
 
         </RelativeLayout>
     </ScrollView>
-
-
 </LinearLayout>
