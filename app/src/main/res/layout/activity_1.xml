@@ -201,6 +201,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/button_hilfe"
                 android:layout_centerHorizontal="true"
+                android:background="@drawable/hgu"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="@string/label_button_datenbank" />
 
         </RelativeLayout>
