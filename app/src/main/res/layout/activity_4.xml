@@ -42,13 +42,15 @@
         android:layout_alignParentBottom="true"
         android:ems="10"
         android:hint="@string/hint_id"
-        android:inputType="textPersonName" />
+        android:inputType="number" />
 
     <Button
         android:id="@+id/button_loeschen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@id/plainText_id"
-        android:text="Datensatz löschen" />
+        android:background="@drawable/hgu"
+        android:text="@string/label_button_datensatzLoeschen" />
 </RelativeLayout>

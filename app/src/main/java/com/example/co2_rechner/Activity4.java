@@ -57,7 +57,7 @@ public class Activity4 extends AppCompatActivity {
 
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
-            buffer.append("Id :" + res.getString(0) + "\n");
+            buffer.append("ID:" + res.getString(0) + "\n");
             buffer.append(res.getString(1) + ": ");
             buffer.append("Kraftstoff :" + res.getString(2) + ", ");
             buffer.append("Verbrauch :" + res.getString(3) + ", ");
