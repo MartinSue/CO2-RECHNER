@@ -53,18 +53,18 @@ public class Activity4 extends AppCompatActivity {
     public void showDatabase() {
         Cursor res = _datenbankManager.getAllData();
         if (res.getCount() == 0)
-            showMessage("Error", "Nothing found :(");
+            showMessage("Error", "Nothing found ☹");
 
 
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
-            buffer.append("ID:" + res.getString(0) + "\n");
-            buffer.append(res.getString(1) + ": ");
-            buffer.append("Kraftstoff :" + res.getString(2) + ", ");
-            buffer.append("Verbrauch :" + res.getString(3) + ", ");
-            buffer.append("Strecke :" + res.getString(4) + ", ");
-            buffer.append("Ergebnis Spezifisch :" + res.getString(5) + ", ");
-            buffer.append("Ergebnis Absolut :" + res.getString(6) + "\n\n");
+            buffer.append("ID: " + res.getString(0) + "\n");
+            buffer.append("Beim " + res.getString(1) + " mit dem Kraftstoff ");
+            buffer.append(res.getString(2) + " mit dem Verbrauch von ");
+            buffer.append(res.getString(3) + " Liter/Kg auf 100km bei ");
+            buffer.append(res.getString(4) + " km, wird folgender Co2-Ausstoß produziert:" + "\n ");
+            buffer.append("➤ Ergebnis Spezifisch (ohne Strecke) : " + res.getString(5) + "g" + "\n ");
+            buffer.append("➤ Ergebnis Absolut : " + res.getString(6) + "kg" +  "\n" + "-----------------------------------------------------------------------------------" + "\n");
         }
 
         textView_datenbank.setText(buffer.toString());

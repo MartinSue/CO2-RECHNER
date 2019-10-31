@@ -125,8 +125,6 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         //EditText
         editText_name = findViewById(R.id.plainText_name);
         getEditText_strecke = findViewById(R.id.plainText_strecke);
-
-
     }
 
     @Override
@@ -168,7 +166,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
                 boolean isInserted = _datenbankManager.insertData(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnisSpezifisch, ergebnisAbsolut);
                 if(isInserted = true) {
-                    Toast.makeText(this, "Daten wurden hinzugefügt", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Daten wurden hinzugefügt ✔", Toast.LENGTH_LONG).show();
 
                     Intent intent = new Intent(this, Activity2.class);
                     intent.putExtra("nameUebergabe", "" + editText_name.getText());
@@ -183,10 +181,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
                     startActivity(intent);
                 }else {
-                    Toast.makeText(this, "Daten wurden nicht hinzugefügt", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Daten wurden nicht hinzugefügt ⚠", Toast.LENGTH_LONG).show();
                 }
-
-
             }
             if (view.getId() == R.id.button_hilfe) {
                 Intent intent = new Intent(this, Activity3.class);
@@ -196,7 +192,6 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         } catch (Exception e) {
             Toast.makeText(this, getText(R.string.toastBitteNumerischen), Toast.LENGTH_SHORT).show();
         }
-
     }
 
 
