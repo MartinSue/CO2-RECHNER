@@ -60,5 +60,5 @@
 
     <!--Activity4-->
     <string name="hint_id">ID eingeben...</string>
-    <string name="label_button_datensatzLoeschen">Datensatz löschen</string>;
+    <string name="label_button_datensatzLoeschen">✘ Datensatz löschen</string>;
 </resources>
