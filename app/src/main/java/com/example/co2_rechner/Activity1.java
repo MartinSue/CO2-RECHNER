@@ -41,16 +41,19 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
     String kraftstoffAsString;
     Double ergebnisSpezifisch;
     Double ergebnisAbsolut;
-     boolean kilogramm = false;
+    boolean flagFuerKilo = false;
+    boolean flagFuerErdgas = false;
 
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         kraftstoffAsString = parent.getItemAtPosition(position).toString();
         if (kraftstoffAsString.equals("Erdgas (CNG)")) {
             seekbar_textview.setText("" + seekbar_value + getText(R.string.label_textview_kiloAufHundert));
+            flagFuerErdgas = true;
         } else {
             seekbar_textview.setText("" + seekbar_value + getText(R.string.label_textview_literAufHundert) );
             seekValue = seekbar_value;
+            flagFuerErdgas=false;
         }
     }
 
@@ -177,7 +180,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                     intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
                     intent.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
                     intent.putExtra("ergebnisAbsolut", (""+ ergebnisAbsolut));
-                    intent.putExtra("flagFuerKilo", kilogramm);
+                    intent.putExtra("flagFuerKilo", flagFuerKilo);
+                    intent.putExtra("flagFuerErdgas",flagFuerErdgas);
 
 
 
@@ -205,10 +209,10 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         return Math.round(value * d) / d;
     }
 
-    private  double grammOderKilo(double absolutErgebnis){
+    private double grammOderKilo(double absolutErgebnis){
         if( absolutErgebnis > 1000){
             absolutErgebnis = absolutErgebnis/1000;
-            kilogramm = true;
+            flagFuerKilo = true;
             return absolutErgebnis;
         }
         return absolutErgebnis;

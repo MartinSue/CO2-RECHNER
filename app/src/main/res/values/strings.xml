@@ -34,10 +34,12 @@
     <string name="label_textview_ergebnisSpezifischUeberschrift">Spezifischer Co\u2082 -Verbrauch</string>
     <string name="label_textview_ergebnisAbsolutUeberschrift">Absoluter Co\u2082 -Verbrauch</string>
     <string name="label_textview_liter"> \u0020 Liter \u0020</string>
-    <string name="label_textview_auf100Kilometer">  \u0020 auf 100 Kilometer</string>
+    <string name="label_textview_kilogramm"> \u0020 Kilogramm \u0020</string>
+    <string name="label_textview_auf100Kilometer"> \u0020auf 100 Kilometer</string>
     <string name="label_button_datenbank">Datenbank</string>
     <string name="label_button_info">Info</string>
     <string name="label_button_baumanzeige">Baumanzeige</string>
+    <string name="label_textview_strecke2">Strecke:\u0020</string>
 
 
 
@@ -47,7 +49,7 @@
     <string name="label_button_baum">Bäume</string>
     <string name="label_button_formel">Formel</string>
     <string name="label_textview_gramm">g Co\u2082 </string>
-    <string name="label_textview_kilogramm">kg Co\u2082  </string>
+    <string name="label_textview_kilogrammCO2">kg Co\u2082  </string>
 
 
     <!--Activity3-->
