@@ -171,6 +171,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 if(isInserted = true) {
                     Toast.makeText(this, "Daten wurden hinzugefügt ✔", Toast.LENGTH_LONG).show();
 
+                    //Intent an Activity 2
                     Intent intent = new Intent(this, Activity2.class);
                     intent.putExtra("nameUebergabe", "" + editText_name.getText());
                     intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
@@ -208,7 +209,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         if( absolutErgebnis > 1000){
             absolutErgebnis = absolutErgebnis/1000;
             flagFuerKilo = true;
-            return absolutErgebnis;
+        }else{
+            flagFuerKilo = false;
         }
         return absolutErgebnis;
     }

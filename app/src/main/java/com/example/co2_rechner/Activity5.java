@@ -24,6 +24,7 @@ public class Activity5 extends AppCompatActivity {
 
 
         Intent intent = getIntent();
+        flagFuerKilo = intent.getBooleanExtra("flagFuerKilo", true);
 
         ergebnisAbsolut = Double.valueOf(intent.getStringExtra("ergebnisAbsolut"));
 
@@ -39,7 +40,7 @@ public class Activity5 extends AppCompatActivity {
             textView_baumAnzahl.setText("" + getText(R.string.label_textview_baumAnzahlEinzahl1) + baumRunden + getText(R.string.label_textview_baumAnzahlEinzahl2));
         }
 
-        flagFuerKilo = intent.getBooleanExtra("flagFuerKilo", false);
+
 
 
     }

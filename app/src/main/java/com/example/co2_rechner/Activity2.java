@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -49,7 +50,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
         Intent intent = getIntent();
 
-        flagFuerKilo= intent.getBooleanExtra("flagFuerKilo",false);
+        flagFuerKilo= intent.getBooleanExtra("flagFuerKilo",true);
         flagFuerErdgas= intent.getBooleanExtra("flagFuerErdgas", false);
         nameAnzeige.setText(intent.getStringExtra("nameUebergabe"));
 

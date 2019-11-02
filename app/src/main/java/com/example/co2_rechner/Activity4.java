@@ -59,10 +59,10 @@ public class Activity4 extends AppCompatActivity {
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
             buffer.append("ID: " + res.getString(0) + "\n");
-            buffer.append("Beim " + res.getString(1) + " mit dem Kraftstoff ");
-            buffer.append(res.getString(2) + " mit dem Verbrauch von ");
-            buffer.append(res.getString(3) + " Liter/Kg auf 100km bei ");
-            buffer.append(res.getString(4) + " km, wird folgender Co2-Ausstoß produziert:" + "\n ");
+            buffer.append("" + res.getString(1) + " produziert mit dem Kraftstoff ");
+            buffer.append(res.getString(2) + " bei einem Verbrauch von ");
+            buffer.append(res.getString(3) + " Liter bzw. KG auf 100km bei ");
+            buffer.append(res.getString(4) + " km, folgenden Co2-Ausstoß:" + "\n ");
             buffer.append("➤ Ergebnis Spezifisch (ohne Strecke) : " + res.getString(5) + "g" + "\n ");
             buffer.append("➤ Ergebnis Absolut : " + res.getString(6) + "kg" +  "\n" + "-----------------------------------------------------------------------------------" + "\n");
         }

@@ -24,8 +24,9 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:fontFamily="sans-serif-condensed-light"
+        android:textAlignment="center"
         android:textColor="#414B37"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <ScrollView
         android:id="@+id/scrollview_trees"
