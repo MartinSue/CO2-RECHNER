@@ -3,6 +3,7 @@ package com.example.co2_rechner;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 //TODO: Alle Strings auf R.strings beziehen!
 
     DatenbankManager _datenbankManager;
+    public static final String TAG_Datenbank = "Datenbank";
+    public static final String TAG_Eingaben = "Formular";
 
     String X;
     //Variablen für EditText
@@ -158,47 +161,40 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                     ergebnisAbsolut = ergebnisSpezifisch * Double.valueOf(strecke);
                         ergebnisAbsolut = rundeBetrag(grammOderKilo(ergebnisAbsolut), 1);
                 }
-                if (kraftstoffAsString.equals("Bitte auswählen...")) {
-                    Toast.makeText(getApplicationContext(), getText(R.string.toastBitteKraftstoff), Toast.LENGTH_SHORT).show();
-                    Exception f = new Exception();
-                    throw (new Exception(f));
-                }
 
                 //Daten in Datenbank einpflegen
                 //Auslagerung Methode (public void AddData)
                 Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
                 boolean isInserted = _datenbankManager.insertData(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl);
                 if(isInserted == true) {
-                    Toast.makeText(this, "Daten wurden hinzugefügt ✔", Toast.LENGTH_LONG).show();
-
-                    //Intent an Activity 2
-                    Intent intent = new Intent(this, Activity2.class);
-                    intent.putExtra("nameUebergabe", "" + editText_name.getText());
-                    intent.putExtra("kraftstoffUebergabe", kraftstoffAsString);
-                    intent.putExtra("verbrauchUebergabe", "" + seekbar_value);
-                    intent.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
-                    intent.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
-                    intent.putExtra("ergebnisAbsolut", (""+ ergebnisAbsolut));
-                    intent.putExtra("flagFuerKilo", flagFuerKilo);
-                    intent.putExtra("flagFuerErdgas",flagFuerErdgas);
-
-
-
-                    startActivity(intent);
+                    Log.v(TAG_Datenbank, "Daten wurden erfolgreich der Datenbank hinzugefügt");
                 }else {
-                    Toast.makeText(this, "Daten wurden nicht hinzugefügt ⚠", Toast.LENGTH_LONG).show();
+                    Log.w(TAG_Datenbank, "Daten konnten nicht in der Datenbank eingefügt werden");
                 }
             }
+
+            //Intent an Activity 2
+            Intent intent_Activity2 = new Intent(this, Activity2.class);
+            intent_Activity2.putExtra("nameUebergabe", "" + editText_name.getText());
+            intent_Activity2.putExtra("kraftstoffUebergabe", kraftstoffAsString);
+            intent_Activity2.putExtra("verbrauchUebergabe", "" + seekbar_value);
+            intent_Activity2.putExtra("streckeUebergabe", "" + getEditText_strecke.getText());
+            intent_Activity2.putExtra("ergebnisSpezifisch", ergebnisSpezifisch + "");
+            intent_Activity2.putExtra("ergebnisAbsolut", (""+ ergebnisAbsolut));
+            intent_Activity2.putExtra("flagFuerKilo", flagFuerKilo);
+            intent_Activity2.putExtra("flagFuerErdgas",flagFuerErdgas);
+
+            startActivity(intent_Activity2);
+
             if (view.getId() == R.id.button_hilfe) {
-                Intent intent = new Intent(this, Activity3.class);
-                startActivity(intent);
+                Intent intent_hilfe = new Intent(this, Activity3.class);
+                startActivity(intent_hilfe);
             }
 
         } catch (Exception e) {
-            Toast.makeText(this, getText(R.string.toastBitteNumerischen), Toast.LENGTH_SHORT).show();
+            Log.w(TAG_Eingaben, "Fehler bei Eingabe der Werte");
         }
     }
-
 
     private double rundeBetrag(double value, int decimalPoints) {
         double d = Math.pow(10, decimalPoints);
@@ -213,5 +209,29 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
             flagFuerKilo = false;
         }
         return absolutErgebnis;
+    }
+
+    public void ueberpruefeEingaben(){
+        if (editText_name.getText().toString() == ""){
+            Log.w(TAG_Eingaben, "Es wurde kein Name eingegeben");
+            Toast.makeText(this, "Bitte Sie einen Namen an!", Toast.LENGTH_SHORT).show();
+        }
+        if (kraftstoffAsString.equals(getText(R.string.hint_km))){
+            Log.w(TAG_Eingaben, "Es wurde keine Kraftstoffart abgegeben");
+            Toast.makeText(this, "Bitte geben Sie eine Kraftstoffart an!", Toast.LENGTH_SHORT).show();
+        }
+        if(seekbar_value == 0){
+            Log.w(TAG_Eingaben, "Es wurde kein Verbrauch eingestellt");
+            Toast.makeText(this, "Verbrauch darf nicht Null sein!", Toast.LENGTH_SHORT).show();
+        }
+        if(getEditText_strecke.getText().toString() == ""){
+            Log.w(TAG_Eingaben, "Es wurde keine Strecke angegeben");
+            Toast.makeText(this, "Bitte geben Sie eine Stecke an!", Toast.LENGTH_SHORT).show();
+        }
+        if(Integer.parseInt(getEditText_strecke.getText().toString()) >= 400000) {
+            Log.w(TAG_Eingaben, "Eingegebene Strecke ist zu groß");
+            Toast.makeText(this, "Wert darf nicht > 500.000 sein!", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }

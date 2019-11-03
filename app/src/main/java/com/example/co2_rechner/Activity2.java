@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class Activity2 extends AppCompatActivity implements View.OnClickListener {
 
     DatenbankManager _datenbankManager;
+    public static final String TAG_Datenbank = "Datenbank";
     TextView verbrauchAnzeige;
     TextView nameAnzeige;
     TextView streckeAnzeige;
@@ -75,23 +76,21 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
             ergebnisAbsolutAnzeige.setText(string_mit_kg);
             boolean isUpdated = _datenbankManager.updateData(id ,intent.getStringExtra("ergebnisSpezifisch") + getText(R.string.label_textview_gramm) ,string_mit_kg);
             if(isUpdated == true){
-                Toast.makeText(this, "Daten wurden geupdated ✔", Toast.LENGTH_LONG).show();
+                Log.v(TAG_Datenbank, "Ergebnisse wurden in die Datenbank erfolgreich hinzugefügt (KG)");
             }else{
-                Toast.makeText(this, "Daten wurden nicht geupdated ⚠", Toast.LENGTH_LONG).show();
+                Log.w(TAG_Datenbank, "Ergebnisse konnten nicht in die Datenbank hinzugefügt werden (KG)");
             }
         }else{
             String string_mit_g = intent.getStringExtra("ergebnisAbsolut")+ getText(R.string.label_textview_gramm);
             ergebnisAbsolutAnzeige.setText(string_mit_g);
             boolean isUpdated = _datenbankManager.updateData(id ,intent.getStringExtra("ergebnisSpezifisch") + getText(R.string.label_textview_gramm) ,string_mit_g);
             if(isUpdated == true){
-                Toast.makeText(this, "Daten wurden geupdated ✔", Toast.LENGTH_LONG).show();
+                Log.v(TAG_Datenbank, "Ergebnisse wurden erfolgreich hinzugefügt (G)");
             }else{
-                Toast.makeText(this, "Daten wurden nicht geupdated ⚠", Toast.LENGTH_LONG).show();
+                Log.w(TAG_Datenbank, "Ergebnisse konnten nicht in die Datenbank hinzugefügt werden (G)");
             }
         }
     }
-
-
 
     @Override
     public void onClick(View view) {

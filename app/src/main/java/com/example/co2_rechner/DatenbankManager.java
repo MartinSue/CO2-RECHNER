@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class DatenbankManager extends SQLiteOpenHelper{
 
@@ -18,6 +19,7 @@ public class DatenbankManager extends SQLiteOpenHelper{
     private static final String COL_5 = "STRECKE";
     private static final String COL_6 = "ERGEBNIS_SPEZIFISCH";
     private static final String COL_7 = "ERGEBNIS_ABSOLUT";
+    public static final String TAG_Datenbank = "Datenbank";
 
 
     public DatenbankManager (Context context){
@@ -42,13 +44,13 @@ public class DatenbankManager extends SQLiteOpenHelper{
         db.execSQL("CREATE INDEX mein_index_1 ON TABLE_NAME (ID);");
 
     }catch (Exception e){
-
+        Log.w(TAG_Datenbank, "Datenbanktabelle konnte nicht erstellt werden");
     }
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        //Diese Methode wurde mit Ansicht nicht genutzt
     }
 
     public boolean insertData(String name, String kraftstoff, Integer verbrauch, Double strecke){
@@ -64,18 +66,6 @@ public class DatenbankManager extends SQLiteOpenHelper{
         else
             return true;
     }
-
-    /*public boolean insertData(String ergebnisSpezifisch, String ergebnisAbsolut){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_6, ergebnisSpezifisch);
-        contentValues.put(COL_7, ergebnisAbsolut);
-        long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1)
-            return false;
-        else
-            return true;
-    }*/
 
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
