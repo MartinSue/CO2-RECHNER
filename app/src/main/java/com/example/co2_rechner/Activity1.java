@@ -167,8 +167,8 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 //Daten in Datenbank einpflegen
                 //Auslagerung Methode (public void AddData)
                 Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
-                boolean isInserted = _datenbankManager.insertData(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl, ergebnisSpezifisch, ergebnisAbsolut);
-                if(isInserted = true) {
+                boolean isInserted = _datenbankManager.insertData(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl);
+                if(isInserted == true) {
                     Toast.makeText(this, "Daten wurden hinzugefügt ✔", Toast.LENGTH_LONG).show();
 
                     //Intent an Activity 2

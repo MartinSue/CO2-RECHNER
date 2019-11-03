@@ -10,7 +10,7 @@ public class DatenbankManager extends SQLiteOpenHelper{
 
     private static final String DB_NAME = "CO2_RECHNER.db";
     private static final int VERSION = 1;
-    private static final String TABLE_NAME = "co2_rechner";
+    private static final String TABLE_NAME = "co2_rechner_datenbank";
     private static final String COL_1 = "ID";
     private static final String COL_2 = "NAME";
     private static final String COL_3 = "KRAFTSTOFF";
@@ -35,8 +35,8 @@ public class DatenbankManager extends SQLiteOpenHelper{
                         "KRAFTSTOFF TEXT NOT NULL," +
                         "VERBRAUCH INTEGER NOT NULL," +
                         "STRECKE DOUBLE NOT NULL," +
-                        "ERGEBNIS_SPEZIFISCH DOUBLE NOT NULL," +
-                        "ERGEBNIS_ABSOLUT DOUBLE NOT NULL ); "
+                        "ERGEBNIS_SPEZIFISCH TEXT," +
+                        "ERGEBNIS_ABSOLUT TEXT ); "
         );
 
         db.execSQL("CREATE INDEX mein_index_1 ON TABLE_NAME (ID);");
@@ -51,13 +51,23 @@ public class DatenbankManager extends SQLiteOpenHelper{
 
     }
 
-    public boolean insertData(String name, String kraftstoff, Integer verbrauch, Double strecke, Double ergebnisSpezifisch, Double ergebnisAbsolut){
+    public boolean insertData(String name, String kraftstoff, Integer verbrauch, Double strecke){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_2, name);
         contentValues.put(COL_3, kraftstoff);
         contentValues.put(COL_4, verbrauch);
         contentValues.put(COL_5, strecke);
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    /*public boolean insertData(String ergebnisSpezifisch, String ergebnisAbsolut){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
         contentValues.put(COL_6, ergebnisSpezifisch);
         contentValues.put(COL_7, ergebnisAbsolut);
         long result = db.insert(TABLE_NAME, null, contentValues);
@@ -65,7 +75,7 @@ public class DatenbankManager extends SQLiteOpenHelper{
             return false;
         else
             return true;
-    }
+    }*/
 
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -76,5 +86,15 @@ public class DatenbankManager extends SQLiteOpenHelper{
     public Integer deleteData (String id){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_NAME, "ID =?", new String[] {id});
+    }
+
+    public boolean updateData(String id, String ergebnisSpezifisch, String ergebnisAbsolut){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, id);
+        contentValues.put(COL_6, ergebnisSpezifisch);
+        contentValues.put(COL_7, ergebnisAbsolut);
+        db.update(TABLE_NAME, contentValues, "id = ?", new String[] {id});
+        return true;
     }
 }

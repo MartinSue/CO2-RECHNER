@@ -3,14 +3,17 @@ package com.example.co2_rechner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Activity2 extends AppCompatActivity implements View.OnClickListener {
 
+    DatenbankManager _datenbankManager;
     TextView verbrauchAnzeige;
     TextView nameAnzeige;
     TextView streckeAnzeige;
@@ -23,14 +26,14 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     String ErgebnisAbsolut;
     boolean flagFuerKilo;
     boolean flagFuerErdgas;
-
-
+    private static int i = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         getSupportActionBar().hide();
+
+        _datenbankManager = new DatenbankManager(this);
 
         setContentView(R.layout.activity_2);
         verbrauchAnzeige = findViewById(R.id.textView_verbrauchAnzeige);
@@ -42,11 +45,9 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         datenbank = findViewById(R.id.button_database);
         baumAnzeige = findViewById(R.id.button_BaumAnzeige);
 
-
         infoSeite.setOnClickListener(this);
         datenbank.setOnClickListener(this);
         baumAnzeige.setOnClickListener(this);
-
 
         Intent intent = getIntent();
 
@@ -65,15 +66,31 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         ergebnisSpezifischAnzeige.setText(intent.getStringExtra("ergebnisSpezifisch")+getText(R.string.label_textview_gramm));
         ErgebnisAbsolut = intent.getStringExtra("ergebnisAbsolut");
 
+
+        String id = i+"";
+        ++i;
         // Überprüfung ob Ergebnis in Kilogramm oder Gramm angezeigt werden muss mithilfe eines boolean, der von Activity 1 mitgegeben wurde.
-
         if (flagFuerKilo ==true){
-            ergebnisAbsolutAnzeige.setText("" + intent.getStringExtra("ergebnisAbsolut")+ getText(R.string.label_textview_kilogrammCO2));
+            String string_mit_kg = "" + intent.getStringExtra("ergebnisAbsolut")+ getText(R.string.label_textview_kilogrammCO2);
+            ergebnisAbsolutAnzeige.setText(string_mit_kg);
+            boolean isUpdated = _datenbankManager.updateData(id ,intent.getStringExtra("ergebnisSpezifisch") + getText(R.string.label_textview_gramm) ,string_mit_kg);
+            if(isUpdated == true){
+                Toast.makeText(this, "Daten wurden geupdated ✔", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this, "Daten wurden nicht geupdated ⚠", Toast.LENGTH_LONG).show();
+            }
         }else{
-            ergebnisAbsolutAnzeige.setText(intent.getStringExtra("ergebnisAbsolut")+ getText(R.string.label_textview_gramm));
+            String string_mit_g = intent.getStringExtra("ergebnisAbsolut")+ getText(R.string.label_textview_gramm);
+            ergebnisAbsolutAnzeige.setText(string_mit_g);
+            boolean isUpdated = _datenbankManager.updateData(id ,intent.getStringExtra("ergebnisSpezifisch") + getText(R.string.label_textview_gramm) ,string_mit_g);
+            if(isUpdated == true){
+                Toast.makeText(this, "Daten wurden geupdated ✔", Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(this, "Daten wurden nicht geupdated ⚠", Toast.LENGTH_LONG).show();
+            }
         }
-
     }
+
 
 
     @Override
@@ -86,7 +103,6 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
 
             Intent intent = new Intent(this, Activity4.class);
             startActivity(intent);
-
         }
         if (view.getId() == R.id.button_BaumAnzeige) {
             Intent intent = new Intent(this, Activity5.class);
