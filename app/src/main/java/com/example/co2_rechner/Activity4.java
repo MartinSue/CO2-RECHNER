@@ -58,36 +58,31 @@ public class Activity4 extends AppCompatActivity {
         if (res.getCount() == 0)
             showMessage("Error", "Nothing found ☹");
 
-        final ArrayList<String> arrayList=new ArrayList<>();
+         ArrayList<String> arrayList=new ArrayList<>();
 
 
-                StringBuffer buffer = new StringBuffer();
+                String buffer = new String();
 
         while (res.moveToNext()) {
-            buffer.append("ID: " + res.getString(0) + "\n");
-            buffer.append("" + res.getString(1) + " produziert mit dem Kraftstoff ");
-            buffer.append(res.getString(2) + " bei einem Verbrauch von ");
-            buffer.append(res.getString(3) + " Liter bzw. KG auf 100 km bei ");
-            buffer.append(res.getString(4) + " km, folgenden Co2-Ausstoß:" + "\n ");
-            buffer.append("➤ Ergebnis Spezifisch (ohne Strecke) : " + res.getString(5) + "\n ");
-            buffer.append("➤ Ergebnis Absolut : " + res.getString(6) + "\n");
+            buffer = res.getString(0) + ". " + res.getString(1)
+                     +  System.getProperty("line.separator") + "Kraftstoff: " + res.getString(2)
+                    + System.getProperty("line.separator") + "Verbrauch: " + res.getString(3) + " Liter bzw. KG auf 100 km"
+                    + System.getProperty("line.separator") + "Strecke: " + res.getString(4) + " km "+
+                    System.getProperty("line.separator") + "➤ Ergebnis Spezifisch: " + res.getString(5) +
+                    System.getProperty("line.separator") + "➤ Ergebnis Absolut : " + res.getString(6);
+
+
+            arrayList.add(buffer);
         }
 
-        arrayList.add(buffer.toString());
+
+
 
         ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,arrayList);
         textView_datenbank.setAdapter(arrayAdapter);
 
 
-
-
     }
-
-
-
-
-
-
 
 
     public void showMessage (String title, String Message){
