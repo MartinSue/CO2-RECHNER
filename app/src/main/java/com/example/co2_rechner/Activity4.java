@@ -6,15 +6,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class Activity4 extends AppCompatActivity {
 
     DatenbankManager _datenbankManager;
-    TextView textView_datenbank;
+    ListView textView_datenbank;
     EditText plainText_id;
     Button button_loeschen;
 
@@ -53,7 +58,11 @@ public class Activity4 extends AppCompatActivity {
         if (res.getCount() == 0)
             showMessage("Error", "Nothing found ☹");
 
-        StringBuffer buffer = new StringBuffer();
+        final ArrayList<String> arrayList=new ArrayList<>();
+
+
+                StringBuffer buffer = new StringBuffer();
+
         while (res.moveToNext()) {
             buffer.append("ID: " + res.getString(0) + "\n");
             buffer.append("" + res.getString(1) + " produziert mit dem Kraftstoff ");
@@ -61,10 +70,25 @@ public class Activity4 extends AppCompatActivity {
             buffer.append(res.getString(3) + " Liter bzw. KG auf 100 km bei ");
             buffer.append(res.getString(4) + " km, folgenden Co2-Ausstoß:" + "\n ");
             buffer.append("➤ Ergebnis Spezifisch (ohne Strecke) : " + res.getString(5) + "\n ");
-            buffer.append("➤ Ergebnis Absolut : " + res.getString(6) +  "\n" + "-----------------------------------------------------------------------------------" + "\n");
+            buffer.append("➤ Ergebnis Absolut : " + res.getString(6) + "\n");
         }
-        textView_datenbank.setText(buffer.toString());
+
+        arrayList.add(buffer.toString());
+
+        ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,arrayList);
+        textView_datenbank.setAdapter(arrayAdapter);
+
+
+
+
     }
+
+
+
+
+
+
+
 
     public void showMessage (String title, String Message){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
