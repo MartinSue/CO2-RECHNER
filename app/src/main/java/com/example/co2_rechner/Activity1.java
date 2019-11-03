@@ -59,7 +59,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        //Die Methode wurde mit Absicht nicht genutzt
     }
 
     @Override
@@ -98,12 +98,12 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-
+                //Die Methode wurde mit Absicht nicht genutzt
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                //Die Methode wurde mit Absicht nicht genutzt
             }
         });
 

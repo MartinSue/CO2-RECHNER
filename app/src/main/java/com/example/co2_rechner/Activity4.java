@@ -43,18 +43,15 @@ public class Activity4 extends AppCompatActivity {
                     Toast.makeText(Activity4.this, "Löschen fehlgeschlagen", Toast.LENGTH_LONG).show();
                 }
                 showDatabase();
-
                 plainText_id.setText("");
             }
         });
-
     }
 
     public void showDatabase() {
         Cursor res = _datenbankManager.getAllData();
         if (res.getCount() == 0)
             showMessage("Error", "Nothing found ☹");
-
 
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
@@ -66,7 +63,6 @@ public class Activity4 extends AppCompatActivity {
             buffer.append("➤ Ergebnis Spezifisch (ohne Strecke) : " + res.getString(5) + "\n ");
             buffer.append("➤ Ergebnis Absolut : " + res.getString(6) +  "\n" + "-----------------------------------------------------------------------------------" + "\n");
         }
-
         textView_datenbank.setText(buffer.toString());
     }
 
