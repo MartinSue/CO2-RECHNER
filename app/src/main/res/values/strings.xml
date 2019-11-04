@@ -24,7 +24,6 @@
     <string name="hint_km">Bitte eingeben...</string>
     <string name="label_textview_kilometer">  \u0020Kilometer</string>
     <string name="label_button_berechnung">BERECHNEN</string>
-    <string name="label_button_hilfe">💡Hilfe</string>
     <string name="label_textview_kiloAufHundert"> \u0020 Kilogramm/100km</string>
     <string name="label_textview_literAufHundert"> \u0020 Liter/100km</string>
     <string name="contentDescription_header">Logo</string>

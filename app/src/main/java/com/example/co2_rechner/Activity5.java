@@ -2,11 +2,13 @@ package com.example.co2_rechner;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Activity5 extends AppCompatActivity {
+    public static final String TAG_Baumberechnung = "Baumberechnung";
     TextView textView_baeume;
     TextView textView_baumAnzahl;
     Double ergebnisAbsolut;
@@ -39,34 +41,29 @@ public class Activity5 extends AppCompatActivity {
         } else {
             textView_baumAnzahl.setText("" + getText(R.string.label_textview_baumAnzahlEinzahl1) + baumRunden + getText(R.string.label_textview_baumAnzahlEinzahl2));
         }
-
-
-
-
     }
 
-
     protected String anzahlTree() {
+        try {
+            if (flagFuerKilo == false) {
+                baumHilfe = ergebnisAbsolut / 10000;
+                baumMenge = "";
 
-        if (flagFuerKilo==false) {
-            baumHilfe = ergebnisAbsolut / 10000;
-            baumMenge = "";
+                for (int count = 0; count < baumHilfe; count++) {
+                    baumMenge = baumMenge + "\uD83C\uDF33";
+                }
+            } else {
+                baumHilfe = ergebnisAbsolut / 10;
+                baumMenge = "";
 
-            for (int count = 0; count < baumHilfe; count++) {
-                baumMenge = baumMenge + "\uD83C\uDF33";
+                for (int count = 0; count < baumHilfe; count++) {
+                    baumMenge = baumMenge + "\uD83C\uDF33";
+                }
             }
-        } else {
-            baumHilfe = ergebnisAbsolut / 10;
-            baumMenge = "";
-
-            for (int count = 0; count < baumHilfe; count++) {
-                baumMenge = baumMenge + "\uD83C\uDF33";
-            }
-
-
-
+            return baumMenge;
+        }catch (Exception e){
+            Log.w(TAG_Baumberechnung, "Bäume können nicht angezeigt werden");
+            return null;
         }
-        return baumMenge;
-
     }
 }

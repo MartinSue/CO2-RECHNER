@@ -139,6 +139,9 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
             if (view.getId() == R.id.button_berechnung) {
 
+                if (!ueberpruefeEingaben())
+                    return;
+
                 String strecke = getEditText_strecke.getText().toString();
 
                 if (kraftstoffAsString.equals("Benzin")) {
@@ -167,7 +170,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
                 Double strecke_zahl = Double.parseDouble(getEditText_strecke.getText().toString());
                 boolean isInserted = _datenbankManager.insertData(editText_name.getText().toString(), kraftstoffAsString, seekbar_value, strecke_zahl);
                 if(isInserted == true) {
-                    Log.v(TAG_Datenbank, "Daten wurden erfolgreich der Datenbank hinzugefügt");
+                    Log.v(TAG_Datenbank, "Daten wurden erfolgreich in die Datenbank hinzugefügt");
                 }else {
                     Log.w(TAG_Datenbank, "Daten konnten nicht in der Datenbank eingefügt werden");
                 }
@@ -211,27 +214,34 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         return absolutErgebnis;
     }
 
-    public void ueberpruefeEingaben(){
-        if (editText_name.getText().toString() == ""){
+    public boolean ueberpruefeEingaben(){
+
+        if (editText_name.getText().toString().equals("")){
             Log.w(TAG_Eingaben, "Es wurde kein Name eingegeben");
             Toast.makeText(this, "Bitte Sie einen Namen an!", Toast.LENGTH_SHORT).show();
+            return false;
         }
-        if (kraftstoffAsString.equals(getText(R.string.hint_km))){
+        else if (kraftstoffAsString.equals("Bitte auswählen...")){
             Log.w(TAG_Eingaben, "Es wurde keine Kraftstoffart abgegeben");
             Toast.makeText(this, "Bitte geben Sie eine Kraftstoffart an!", Toast.LENGTH_SHORT).show();
+            return false;
         }
-        if(seekbar_value == 0){
+        else if(seekbar_value == 0){
             Log.w(TAG_Eingaben, "Es wurde kein Verbrauch eingestellt");
             Toast.makeText(this, "Verbrauch darf nicht Null sein!", Toast.LENGTH_SHORT).show();
+            return false;
         }
-        if(getEditText_strecke.getText().toString() == ""){
+        else if(getEditText_strecke.getText().toString().equals("")){
             Log.w(TAG_Eingaben, "Es wurde keine Strecke angegeben");
             Toast.makeText(this, "Bitte geben Sie eine Stecke an!", Toast.LENGTH_SHORT).show();
+            return false;
         }
-        if(Integer.parseInt(getEditText_strecke.getText().toString()) >= 400000) {
+        else if(Integer.parseInt(getEditText_strecke.getText().toString()) >= 400000) {
             Log.w(TAG_Eingaben, "Eingegebene Strecke ist zu groß");
             Toast.makeText(this, "Wert darf nicht > 500.000 sein!", Toast.LENGTH_SHORT).show();
+            return false;
         }
+        return true;
 
     }
 }

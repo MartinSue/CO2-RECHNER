@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Activity3 extends AppCompatActivity implements View.OnClickListener {
 
@@ -15,15 +16,14 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
+
         setContentView(R.layout.activity_3);
         button_baumIntent = findViewById(R.id.button_WebseiteBaum);
         button_formelIntent =findViewById(R.id.button_WebseiteFormel);
 
         button_baumIntent.setOnClickListener(this);
         button_formelIntent.setOnClickListener(this);
-
-
-        getSupportActionBar().hide();
     }
 
 
@@ -54,7 +54,13 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
         }  else if(v.getId()==R.id.button_WebseiteFormel){
             intent = createIntentFormel();
         }
+        //if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
             startActivity(intent);
+        //}else{
+        //    Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
+        //    v.setEnabled(false);
+        //}
+
 
     }
 }
