@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -36,8 +35,11 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
         button_baumIntent.setOnClickListener(this);
         button_formelIntent.setOnClickListener(this);
 
-        Intent intent = getIntent();
-
+    }
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this,Activity1.class);
+        startActivity(intent);
     }
 
 
