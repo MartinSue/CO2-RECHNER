@@ -3,6 +3,7 @@ package com.example.co2_rechner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,7 +28,7 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
     String ErgebnisAbsolut;
     boolean flagFuerKilo;
     boolean flagFuerErdgas;
-    private static int i = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +69,16 @@ public class Activity2 extends AppCompatActivity implements View.OnClickListener
         ErgebnisAbsolut = intent.getStringExtra("ergebnisAbsolut");
 
 
+        Cursor res = _datenbankManager.getAllData();
+        int i =0;
+        while (res.moveToNext() == true) {
+            i = i+1;
+        }
+
+
         String id = i+"";
-        ++i;
+
+
         // Überprüfung ob Ergebnis in Kilogramm oder Gramm angezeigt werden muss mithilfe eines boolean, der von Activity 1 mitgegeben wurde.
         if (flagFuerKilo ==true){
             String string_mit_kg = "" + intent.getStringExtra("ergebnisAbsolut")+ getText(R.string.label_textview_kilogrammCO2);

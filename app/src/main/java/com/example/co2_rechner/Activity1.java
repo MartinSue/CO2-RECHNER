@@ -238,7 +238,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
         }
         else if(Integer.parseInt(getEditText_strecke.getText().toString()) >= 400000) {
             Log.w(TAG_Eingaben, "Eingegebene Strecke ist zu groß");
-            Toast.makeText(this, "Wert darf nicht > 500.000 sein!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Wert darf nicht > 400.000 sein!", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
