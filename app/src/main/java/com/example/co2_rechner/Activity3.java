@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
@@ -70,12 +71,12 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
         }  else{
             intent = createIntentFormel();
         }
-        if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
+        //if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
             startActivity(intent);
-        }else{
-            Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
-            v.setEnabled(false);
-        }
+        //}else{
+        //    Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
+        //    v.setEnabled(false);
+        //}
 
 
     }
