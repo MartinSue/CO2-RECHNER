@@ -47,6 +47,9 @@ public class Activity4 extends AppCompatActivity {
                 }else {
                     Log.w(TAG_Datenbank, "Fehler beim Löschen aus der Datenbank");
                 }
+                if(deletedRows == 0){
+                    Toast.makeText(Activity4.this, "ID ist nicht vorhanden", Toast.LENGTH_SHORT).show();
+                }
                 showDatabase();
                 plainText_id.setText("");
             }
