@@ -27,7 +27,6 @@ public class Activity5 extends AppCompatActivity {
 
         Intent intent = getIntent();
         flagFuerKilo = intent.getBooleanExtra("flagFuerKilo", true);
-
         ergebnisAbsolut = Double.valueOf(intent.getStringExtra("ergebnisAbsolut"));
 
         textView_baeume = findViewById(R.id.textView_trees);

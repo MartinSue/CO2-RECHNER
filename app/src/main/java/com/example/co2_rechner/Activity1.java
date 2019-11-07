@@ -191,7 +191,7 @@ public class Activity1 extends Activity implements View.OnClickListener, Adapter
 
             if (view.getId() == R.id.button_hilfe) {
                 Intent intent_hilfe = new Intent(this, Activity3.class);
-                startActivity(intent_hilfe);
+                startActivityForResult(intent_hilfe, 123);
             }
 
         } catch (Exception e) {

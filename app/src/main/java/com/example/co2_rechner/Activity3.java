@@ -40,6 +40,12 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
 
         button_baumIntent.setOnClickListener(this);
         button_formelIntent.setOnClickListener(this);
+
+    }
+    public void onBackPressed()
+    {
+        Intent intent = new Intent(this,Activity1.class);
+        startActivity(intent);
     }
 
 
@@ -67,7 +73,7 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
         Intent intent = null;
         if(v.getId()== R.id.button_WebseiteBaum){
         intent = createIntentBaum();
-        }  else if(v.getId()==R.id.button_WebseiteFormel){
+        }  else {
             intent = createIntentFormel();
         }
         //if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
