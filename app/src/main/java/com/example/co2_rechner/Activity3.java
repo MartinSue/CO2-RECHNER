@@ -3,13 +3,9 @@ package com.example.co2_rechner;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -21,14 +17,13 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
 
     Button button_formelIntent;
     Button button_baumIntent;
-    ImageView imageView_baum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
-
         setContentView(R.layout.activity_3);
+
         button_baumIntent = findViewById(R.id.button_WebseiteBaum);
         button_formelIntent =findViewById(R.id.button_WebseiteFormel);
 
@@ -40,6 +35,9 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
 
         button_baumIntent.setOnClickListener(this);
         button_formelIntent.setOnClickListener(this);
+
+        Intent intent = getIntent();
+
     }
 
 
@@ -67,15 +65,15 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
         Intent intent = null;
         if(v.getId()== R.id.button_WebseiteBaum){
         intent = createIntentBaum();
-        }  else if(v.getId()==R.id.button_WebseiteFormel){
+        }  else{
             intent = createIntentFormel();
         }
-        //if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
+        if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
             startActivity(intent);
-        //}else{
-        //    Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
-        //    v.setEnabled(false);
-        //}
+        }else{
+            Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
+            v.setEnabled(false);
+        }
 
 
     }

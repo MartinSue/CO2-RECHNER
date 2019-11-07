@@ -30,7 +30,7 @@
         android:gravity="center_horizontal|center_vertical"
         android:text="@string/label_button_info"
         android:textColor="#323B2A"
-        android:textSize="24sp" />
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/textView_infotext"
