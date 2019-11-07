@@ -53,9 +53,9 @@
 
     <!--Activity3-->
     <string name="label_textview_baumAnzahlMehrzahl1">Zur Kompensation des Co\u2082 -Ausstoßes müssten\u0020</string>
-    <string name="label_textview_baumAnzahlMehrzahl2">\u0020 Bäume gepflanzt werden.\u0020</string>
+    <string name="label_textview_baumAnzahlMehrzahl2">\ Bäume gepflanzt werden.\u0020</string>
     <string name="label_textview_baumAnzahlEinzahl1">Zur Kompensation des Co\u2082 -Ausstoßes muss\u0020</string>
-    <string name="label_textview_baumAnzahlEinzahl2">\u0020 Baum gepflanzt werden.\u0020</string>
+    <string name="label_textview_baumAnzahlEinzahl2">\ Baum gepflanzt werden.\u0020</string>
 
     <!--Activity4-->
     <string name="hint_id">ID eingeben...</string>

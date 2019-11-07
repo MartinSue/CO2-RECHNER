@@ -21,8 +21,8 @@
         android:id="@+id/textView_BaumAnzahl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-condensed-light"
         android:textAlignment="center"
         android:textColor="#414B37"
@@ -32,16 +32,17 @@
         android:id="@+id/scrollview_trees"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
+        android:layout_gravity="center|center_horizontal"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="5dp">
 
         <TextView
             android:id="@+id/textView_trees"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20sp"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:textAlignment="center"/>
     </ScrollView>
-
 </LinearLayout>

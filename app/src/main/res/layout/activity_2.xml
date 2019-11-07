@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView_header"
         android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
         android:background="#CCB0CD90"
         android:fontFamily="sans-serif-condensed-light"
         android:foregroundGravity="clip_horizontal|center"
