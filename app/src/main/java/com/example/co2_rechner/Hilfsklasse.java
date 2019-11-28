@@ -17,7 +17,7 @@ public class Hilfsklasse {
             Log.w(TAG_implizite_intents, "Nicht-unterstützer Intent: ACTION=" + intent.getAction() + ", DATA=" + intent.getDataString());
             return false;
         } else {
-            return false;
+            return true;
         }
 
 

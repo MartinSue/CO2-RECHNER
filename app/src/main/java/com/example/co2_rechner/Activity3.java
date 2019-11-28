@@ -71,12 +71,12 @@ public class Activity3 extends AppCompatActivity implements View.OnClickListener
         }  else{
             intent = createIntentFormel();
         }
-        //if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
+        if (Hilfsklasse.wirdIntentUnterstuetzt(this, intent)){
             startActivity(intent);
-        //}else{
-        //    Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
-        //    v.setEnabled(false);
-        //}
+        }else{
+            Toast.makeText(Activity3.this, "Dieser Intent wird auf Ihrem Gerät leider nicht unterstützt.", Toast.LENGTH_LONG);
+            v.setEnabled(false);
+        }
 
 
     }
